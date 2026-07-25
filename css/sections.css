@@ -1,0 +1,69 @@
+.content-section { width: min(100%, 1180px); margin: 0 auto; padding: 86px 24px; }
+.section-heading { max-width: 640px; }
+.eyebrow { margin-bottom: 12px; color: var(--orange-light); font-size: 10px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; }
+.section-heading h2 { max-width: 590px; font-size: clamp(2rem, 7.4vw, 3.65rem); letter-spacing: -1.8px; line-height: 1.08; }
+.section-heading > p:last-child { max-width: 490px; margin-top: 16px; color: var(--muted); font-size: 14px; line-height: 1.75; }
+.dish-grid, .restaurant-grid, .benefit-grid { display: grid; gap: 15px; margin-top: 34px; }
+.dish-card, .restaurant-card, .step-card, .benefit-card { position: relative; overflow: hidden; border: 1px solid var(--line); background: var(--surface); box-shadow: inset 0 1px rgba(255,255,255,.08), 0 18px 48px rgba(0,0,0,.16); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+.dish-card::before, .restaurant-card::before, .step-card::before, .benefit-card::before { position: absolute; inset: 0; background: linear-gradient(116deg, transparent 22%, rgba(255,255,255,.1) 49%, transparent 58%); content: ""; opacity: 0; pointer-events: none; transform: translateX(-115%); transition: transform .7s ease, opacity .3s ease; }
+.dish-card { border-radius: 22px; transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s ease, box-shadow .35s ease; }
+.dish-card:hover, .restaurant-card:hover { border-color: rgba(255,155,92,.34); box-shadow: inset 0 1px rgba(255,255,255,.13), 0 25px 55px rgba(0,0,0,.29); transform: translateY(-6px); }
+.dish-card:hover::before, .restaurant-card:hover::before, .step-card:hover::before, .benefit-card:hover::before { opacity: 1; transform: translateX(115%); }
+.dish-visual { position: relative; display: grid; min-height: 205px; overflow: hidden; place-items: center; border-bottom: 1px solid rgba(255,255,255,.08); }
+.dish-visual::before, .dish-visual::after { position: absolute; border-radius: 50%; content: ""; filter: blur(2px); }
+.dish-visual::before { width: 132px; height: 42px; bottom: 25px; background: rgba(0,0,0,.25); filter: blur(13px); }
+.dish-visual::after { width: 156px; height: 156px; background: rgba(255,255,255,.11); box-shadow: inset 0 2px 10px rgba(255,255,255,.26); }
+.dish-visual span { z-index: 1; font-size: 82px; filter: drop-shadow(0 18px 14px rgba(0,0,0,.32)); transform: rotate(-7deg); transition: transform .4s ease; }
+.dish-card:hover .dish-visual span { transform: rotate(5deg) scale(1.1); }
+.dish-visual i { position: absolute; z-index: 2; top: 15px; right: 17px; width: 46px; height: 46px; border: 1px solid rgba(255,255,255,.17); border-radius: 50%; background: rgba(255,255,255,.09); backdrop-filter: blur(9px); }
+.dish-visual--pasta { background: radial-gradient(circle at 30% 20%, rgba(255,162,74,.45), transparent 36%), linear-gradient(145deg, #4c260d, #130e11); }
+.dish-visual--sushi { background: radial-gradient(circle at 62% 22%, rgba(255,102,69,.38), transparent 37%), linear-gradient(145deg, #3d1720, #11141b); }
+.dish-visual--dessert { background: radial-gradient(circle at 44% 17%, rgba(209,134,255,.34), transparent 36%), linear-gradient(145deg, #33213d, #131016); }
+.dish-card__content { padding: 18px; }
+.card-meta, .card-footer, .restaurant-card__content > div { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.card-meta { color: #a9abb4; font-size: 10px; font-weight: 600; }
+.rating { color: #ffc183 !important; white-space: nowrap; }
+.dish-card h3, .restaurant-card h3, .step-card h3, .benefit-card h3 { margin-top: 10px; font-size: 18px; letter-spacing: -.6px; }
+.dish-card p, .step-card p, .benefit-card p { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.card-footer { margin-top: 18px; }
+.card-footer strong { color: #fff; font-size: 15px; }
+.card-button { border: 0; background: transparent; color: var(--orange-light); cursor: pointer; font: inherit; font-size: 11px; font-weight: 700; }
+.card-button:hover { color: #fff; }
+.how-it-works { border-top: 1px solid rgba(255,255,255,.06); }
+.steps-list { display: grid; gap: 12px; margin-top: 34px; list-style: none; }
+.step-card { min-height: 190px; padding: 23px; border-radius: 20px; transition: transform .3s ease, border-color .3s ease; }
+.step-card:hover, .benefit-card:hover { border-color: rgba(255,155,92,.28); transform: translateY(-4px); }
+.step-number { position: absolute; top: 20px; right: 21px; color: rgba(255,255,255,.2); font-size: 11px; font-weight: 700; }
+.step-icon { display: grid; width: 43px; height: 43px; place-items: center; border: 1px solid rgba(255,136,64,.27); border-radius: 14px; background: rgba(255,106,22,.1); color: var(--orange-light); font-size: 23px; }
+.restaurant-showcase { padding-top: 34px; }
+.restaurant-card { border-radius: 21px; transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s ease, box-shadow .35s ease; }
+.restaurant-visual { display: grid; min-height: 174px; place-items: center; color: rgba(255,255,255,.9); font-size: 23px; font-weight: 800; letter-spacing: -1.4px; line-height: .85; text-align: center; }
+.restaurant-visual span { text-shadow: 0 8px 18px rgba(0,0,0,.32); }
+.restaurant-visual--ember { background: radial-gradient(circle at 50% 100%, rgba(255,94,19,.7), transparent 42%), linear-gradient(140deg, #402214, #171213); }
+.restaurant-visual--nori { background: radial-gradient(circle at 50% 30%, rgba(94,173,144,.32), transparent 40%), linear-gradient(140deg, #123234, #101718); }
+.restaurant-visual--luma { background: radial-gradient(circle at 48% 34%, rgba(250,181,89,.45), transparent 39%), linear-gradient(140deg, #57371e, #171316); }
+.restaurant-card__content { padding: 16px 17px 18px; }
+.restaurant-card__content > span { color: var(--muted); font-size: 10px; font-weight: 600; text-transform: uppercase; }
+.restaurant-card__content h3 { margin: 7px 0 15px; }
+.restaurant-card__content > div { color: var(--orange-light); font-size: 11px; font-weight: 700; }
+.restaurant-card__content a { text-decoration: none; }
+.benefits { padding-bottom: 92px; }
+.benefit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.benefit-card { min-height: 166px; padding: 18px; border-radius: 18px; transition: transform .3s ease, border-color .3s ease; }
+.benefit-card > span { color: var(--orange-light); font-size: 24px; }
+.benefit-card h3 { margin-top: 20px; font-size: 15px; }
+.benefit-card p { font-size: 11px; }
+.site-footer { position: relative; overflow: hidden; padding: 50px 24px 21px; border-top: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.025); }
+.site-footer::before { position: absolute; top: -180px; left: 50%; width: 360px; height: 260px; border-radius: 50%; background: rgba(255,106,22,.1); content: ""; filter: blur(70px); transform: translateX(-50%); }
+.footer-main, .footer-bottom { position: relative; z-index: 1; width: min(100%, 1132px); margin: 0 auto; }
+.footer-main { display: grid; gap: 32px; }
+.footer-brand p { max-width: 230px; margin-top: 13px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.footer-nav, .footer-contact { display: grid; gap: 10px; align-content: start; }
+.footer-nav p, .footer-contact p { margin-bottom: 3px; color: #fff; font-size: 11px; font-weight: 700; }
+.footer-nav a, .footer-contact > a { color: var(--muted); font-size: 12px; text-decoration: none; }
+.footer-nav a:hover, .footer-contact > a:hover { color: var(--orange-light); }
+.social-links { display: flex; gap: 8px; margin-top: 5px; }
+.social-links a { display: grid; width: 31px; height: 31px; place-items: center; border: 1px solid var(--line); border-radius: 9px; color: #e4e4e7; font-size: 10px; font-weight: 700; text-decoration: none; transition: background .25s ease, transform .25s ease; }
+.social-links a:hover { background: rgba(255,106,22,.14); transform: translateY(-2px); }
+.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin-top: 44px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.09); color: #777983; font-size: 10px; }
+@media (min-width: 600px) { .dish-grid, .restaurant-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .steps-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } .benefit-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } .footer-main { grid-template-columns: 1.8fr 1fr 1fr; } }

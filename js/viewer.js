@@ -32,7 +32,7 @@ const loadingManager = new THREE.LoadingManager();
 loadingManager.onError = () => { canvas.setAttribute('aria-label', '3D preview unavailable.'); };
 const loader = new GLTFLoader(loadingManager);
 let model;
-loader.load('assets/models/handgripper.glb', (gltf) => {
+loader.load('assets/models/coffee.glb', (gltf) => {
   model = gltf.scene;
   const bounds = new THREE.Box3().setFromObject(model);
   const size = bounds.getSize(new THREE.Vector3());
@@ -59,3 +59,4 @@ resize();
 
 function render() { controls.update(); renderer.render(scene, camera); requestAnimationFrame(render); }
 render();
+

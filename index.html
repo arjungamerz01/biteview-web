@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/sections.css">
     <script type="importmap">
         {
             "imports": {
@@ -35,9 +36,9 @@
                 <span></span><span></span>
             </button>
             <div class="nav-links" id="mobile-menu">
-                <a href="#experience">Explore menu</a>
-                <a href="#experience">About us</a>
-                <a href="#experience">Talk to us</a>
+                <a href="#dishes">Explore menu</a>
+                <a href="#how-it-works">About us</a>
+                <a href="#footer">Talk to us</a>
             </div>
         </nav>
     </header>
@@ -49,8 +50,8 @@
                 <h1 id="hero-title">Experience Food<br><span>Before You Order.</span></h1>
                 <p class="subtitle">Bring restaurant menus to life with immersive 3D models and Augmented Reality.</p>
                 <div class="hero-buttons">
-                    <a href="#experience" class="primary-btn">Try Live Demo <span aria-hidden="true">↗</span></a>
-                    <a href="#experience" class="secondary-btn">For Restaurants</a>
+                    <a href="#dishes" class="primary-btn">Try Live Demo <span aria-hidden="true">↗</span></a>
+                    <a href="#restaurants" class="secondary-btn">For Restaurants</a>
                 </div>
             </div>
 
@@ -64,12 +65,67 @@
                     <div class="model-orbit model-orbit--two" aria-hidden="true"></div>
                 </div>
             </div>
-            <a class="scroll" href="#experience" aria-label="Learn more"><span>Scroll to discover</span><b aria-hidden="true">↓</b></a>
+            <a class="scroll" href="#dishes" aria-label="Explore featured dishes"><span>Scroll to discover</span><b aria-hidden="true">↓</b></a>
         </section>
-        <section id="experience" class="experience" aria-label="BiteView experience">
-            <p>Menus made memorable.</p>
+
+        <section id="dishes" class="content-section featured-dishes" aria-labelledby="dishes-title">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Curated for today</p>
+                <h2 id="dishes-title">Featured dishes worth a closer look.</h2>
+                <p>Explore the details before the first bite, from every angle.</p>
+            </div>
+            <div class="dish-grid">
+                <article class="dish-card reveal" data-reveal-delay="0">
+                    <div class="dish-visual dish-visual--pasta" role="img" aria-label="Placeholder image for Truffle Tagliatelle"><span aria-hidden="true">🍝</span><i></i></div>
+                    <div class="dish-card__content"><div class="card-meta"><span>Chef's pick</span><span class="rating">★ 4.9</span></div><h3>Truffle Tagliatelle</h3><p>Hand-rolled pasta, aged parmesan and black truffle.</p><div class="card-footer"><strong>₹ 680</strong><button class="card-button" type="button" data-dish="Truffle Tagliatelle">View in 3D <span aria-hidden="true">↗</span></button></div></div>
+                </article>
+                <article class="dish-card reveal" data-reveal-delay="80">
+                    <div class="dish-visual dish-visual--sushi" role="img" aria-label="Placeholder image for Miso Glazed Salmon"><span aria-hidden="true">🍣</span><i></i></div>
+                    <div class="dish-card__content"><div class="card-meta"><span>Signature</span><span class="rating">★ 4.8</span></div><h3>Miso Glazed Salmon</h3><p>Charred salmon, citrus rice and a bright sesame glaze.</p><div class="card-footer"><strong>₹ 820</strong><button class="card-button" type="button" data-dish="Miso Glazed Salmon">View in 3D <span aria-hidden="true">↗</span></button></div></div>
+                </article>
+                <article class="dish-card reveal" data-reveal-delay="160">
+                    <div class="dish-visual dish-visual--dessert" role="img" aria-label="Placeholder image for Burnt Basque Cheesecake"><span aria-hidden="true">🍰</span><i></i></div>
+                    <div class="dish-card__content"><div class="card-meta"><span>New arrival</span><span class="rating">★ 4.9</span></div><h3>Burnt Basque Cheesecake</h3><p>Silken vanilla centre, caramelised crown, berry compote.</p><div class="card-footer"><strong>₹ 440</strong><button class="card-button" type="button" data-dish="Burnt Basque Cheesecake">View in 3D <span aria-hidden="true">↗</span></button></div></div>
+                </article>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="content-section how-it-works" aria-labelledby="how-title">
+            <div class="section-heading reveal"><p class="eyebrow">Simple by design</p><h2 id="how-title">A better way to choose your next dish.</h2></div>
+            <ol class="steps-list">
+                <li class="step-card reveal" data-reveal-delay="0"><span class="step-number">01</span><span class="step-icon" aria-hidden="true">⌁</span><h3>Scan QR</h3><p>Open a beautiful, contactless menu in seconds.</p></li>
+                <li class="step-card reveal" data-reveal-delay="100"><span class="step-number">02</span><span class="step-icon" aria-hidden="true">◈</span><h3>View Food in 3D</h3><p>Spin, inspect and discover every delicious detail.</p></li>
+                <li class="step-card reveal" data-reveal-delay="200"><span class="step-number">03</span><span class="step-icon" aria-hidden="true">✓</span><h3>Order with confidence</h3><p>Know exactly what you want before you order.</p></li>
+            </ol>
+        </section>
+
+        <section id="restaurants" class="content-section restaurant-showcase" aria-labelledby="restaurants-title">
+            <div class="section-heading reveal"><p class="eyebrow">Made for memorable tables</p><h2 id="restaurants-title">Meet the restaurants bringing menus to life.</h2></div>
+            <div class="restaurant-grid">
+                <article class="restaurant-card reveal" data-reveal-delay="0"><div class="restaurant-visual restaurant-visual--ember" role="img" aria-label="Placeholder image for Ember & Grain"><span>Ember<br>&amp; Grain</span></div><div class="restaurant-card__content"><span>Modern European</span><h3>Ember &amp; Grain</h3><div><span class="rating">★ 4.8</span><a href="#dishes">Open Demo <span aria-hidden="true">↗</span></a></div></div></article>
+                <article class="restaurant-card reveal" data-reveal-delay="100"><div class="restaurant-visual restaurant-visual--nori" role="img" aria-label="Placeholder image for Nori House"><span>NORI<br>HOUSE</span></div><div class="restaurant-card__content"><span>Japanese Kitchen</span><h3>Nori House</h3><div><span class="rating">★ 4.9</span><a href="#dishes">Open Demo <span aria-hidden="true">↗</span></a></div></div></article>
+                <article class="restaurant-card reveal" data-reveal-delay="200"><div class="restaurant-visual restaurant-visual--luma" role="img" aria-label="Placeholder image for Luma Café"><span>LUMA<br>CAFÉ</span></div><div class="restaurant-card__content"><span>All-day Café</span><h3>Luma Café</h3><div><span class="rating">★ 4.7</span><a href="#dishes">Open Demo <span aria-hidden="true">↗</span></a></div></div></article>
+            </div>
+        </section>
+
+        <section class="content-section benefits" aria-labelledby="benefits-title">
+            <div class="section-heading reveal"><p class="eyebrow">Built for the table</p><h2 id="benefits-title">Why guests remember BiteView.</h2></div>
+            <div class="benefit-grid">
+                <article class="benefit-card reveal" data-reveal-delay="0"><span aria-hidden="true">ϟ</span><h3>Fast</h3><p>Instant access, right from a QR code.</p></article>
+                <article class="benefit-card reveal" data-reveal-delay="70"><span aria-hidden="true">⌘</span><h3>Interactive</h3><p>Menus that invite discovery and delight.</p></article>
+                <article class="benefit-card reveal" data-reveal-delay="140"><span aria-hidden="true">◉</span><h3>3D Experience</h3><p>Give every dish the attention it deserves.</p></article>
+                <article class="benefit-card reveal" data-reveal-delay="210"><span aria-hidden="true">▣</span><h3>Mobile Ready</h3><p>Designed for every guest, on every screen.</p></article>
+            </div>
         </section>
     </main>
+    <footer id="footer" class="site-footer">
+        <div class="footer-main">
+            <div class="footer-brand"><a class="logo" href="index.html" aria-label="BiteView home"><img src="assets/logo/biteview-logo.png" alt="BiteView logo"><span>BiteView</span></a><p>Making restaurant menus impossible to forget.</p></div>
+            <div class="footer-nav"><p>Explore</p><a href="#dishes">Featured dishes</a><a href="#how-it-works">How it works</a><a href="#restaurants">Restaurants</a></div>
+            <div class="footer-contact"><p>Get in touch</p><a href="mailto:hello@biteview.co">hello@biteview.co</a><div class="social-links"><a href="#footer" aria-label="Instagram">ig</a><a href="#footer" aria-label="LinkedIn">in</a><a href="#footer" aria-label="X">𝕏</a></div></div>
+        </div>
+        <div class="footer-bottom"><span>© 2026 BiteView. All rights reserved.</span><span>See before you order.</span></div>
+    </footer>
     <script src="js/app.js" defer></script>
     <script type="module" src="js/viewer.js"></script>
 </body>
