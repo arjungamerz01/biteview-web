@@ -1,0 +1,18 @@
+@media (min-width: 700px) {
+  .navbar { top: 20px; padding-inline: 19px; }
+  .menu-btn { display: none; }
+  .nav-links { position: static; display: flex; width: auto; padding: 0; border: 0; background: none; box-shadow: none; backdrop-filter: none; }
+  .nav-links a { padding: 9px 12px; }
+  .hero { grid-template-columns: minmax(0, .92fr) minmax(360px, 1.08fr); align-items: center; max-width: 1180px; margin: 0 auto; padding: 135px 42px 52px; text-align: left; }
+  .hero-copy { margin: 0; }
+  .subtitle { margin-left: 0; }
+  .hero-buttons { justify-content: flex-start; }
+  .model-stage { margin-top: 0; }
+  .model-card { width: min(100%, 500px); height: 500px; }
+  .scroll { grid-column: 1 / -1; margin-top: -10px; }
+}
+@media (min-width: 1050px) {
+  .hero { padding-inline: 24px; }
+  .hero h1 { font-size: 4.9rem; }
+  .model-card { width: 520px; height: 520px; }
+}

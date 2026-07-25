@@ -1,0 +1,13 @@
+.hero-copy { animation: reveal-up .75s cubic-bezier(.2,.8,.2,1) both; }
+.model-stage { animation: reveal-up .9s .14s cubic-bezier(.2,.8,.2,1) both; }
+.model-card { animation: card-float 6s ease-in-out infinite; }
+.model-card__shine { animation: shine 7s ease-in-out infinite; }
+.model-orbit--one { animation: orbit-one 13s linear infinite; }
+.model-orbit--two { animation: orbit-two 16s linear infinite; }
+.scroll b { animation: bounce 1.7s ease-in-out infinite; }
+@keyframes reveal-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes card-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes shine { 0%, 35% { transform: translateX(-80%) rotate(27deg); } 65%, 100% { transform: translateX(260%) rotate(27deg); } }
+@keyframes orbit-one { to { transform: rotate(340deg); } }
+@keyframes orbit-two { to { transform: rotate(-318deg); } }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }

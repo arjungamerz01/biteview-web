@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08090c">
+    <meta name="description" content="BiteView brings restaurant menus to life with interactive 3D and AR food experiences.">
+    <title>BiteView | See Before You Order</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.166.1/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="bg-glow bg-glow--orange" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--violet" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <nav class="navbar" aria-label="Primary navigation">
+            <a class="logo" href="index.html" aria-label="BiteView home">
+                <img src="assets/logo/biteview-logo.png" alt="BiteView logo">
+                <span>BiteView</span>
+            </a>
+            <button class="menu-btn" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false">
+                <span></span><span></span>
+            </button>
+            <div class="nav-links" id="mobile-menu">
+                <a href="#experience">Explore menu</a>
+                <a href="#experience">About us</a>
+                <a href="#experience">Talk to us</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="badge"><span class="badge-dot"></span> Interactive 3D &amp; AR Menu Platform</p>
+                <h1 id="hero-title">Experience Food<br><span>Before You Order.</span></h1>
+                <p class="subtitle">Bring restaurant menus to life with immersive 3D models and Augmented Reality.</p>
+                <div class="hero-buttons">
+                    <a href="#experience" class="primary-btn">Try Live Demo <span aria-hidden="true">↗</span></a>
+                    <a href="#experience" class="secondary-btn">For Restaurants</a>
+                </div>
+            </div>
+
+            <div class="model-stage" aria-label="Interactive 3D food preview">
+                <div class="model-card">
+                    <div class="model-card__shine" aria-hidden="true"></div>
+                    <div class="model-status"><span></span> Live 3D preview</div>
+                    <canvas id="model-viewer" aria-label="3D model. Drag to rotate."></canvas>
+                    <div class="model-hint"><span class="drag-icon" aria-hidden="true">↔</span> Drag to explore</div>
+                    <div class="model-orbit model-orbit--one" aria-hidden="true"></div>
+                    <div class="model-orbit model-orbit--two" aria-hidden="true"></div>
+                </div>
+            </div>
+            <a class="scroll" href="#experience" aria-label="Learn more"><span>Scroll to discover</span><b aria-hidden="true">↓</b></a>
+        </section>
+        <section id="experience" class="experience" aria-label="BiteView experience">
+            <p>Menus made memorable.</p>
+        </section>
+    </main>
+    <script src="js/app.js" defer></script>
+    <script type="module" src="js/viewer.js"></script>
+</body>
+</html>
