@@ -1,49 +1,28 @@
 @echo off
-title BiteView One-Click Deploy
+title BiteView Deploy
 
-:: ================================
-:: SETTINGS
-:: ================================
-set BACKUP_DIR=C:\Users\KD\Desktop\biteview-web_backup
-
-:: Create backup folder if it doesn't exist
-if not exist "%BACKUP_DIR%" mkdir "%BACKUP_DIR%"
-
-:: Create timestamp
-for /f %%a in ('powershell -NoProfile -Command "Get-Date -Format yyyy-MM-dd_HH-mm-ss"') do set TIMESTAMP=%%a
+cd /d "%~dp0"
 
 echo.
-echo ======================================
-echo Creating Backup...
-echo ======================================
-
-:: Copy project
-powershell -NoProfile -Command ^
-"Copy-Item '%CD%' '%BACKUP_DIR%\Backup_%TIMESTAMP%' -Recurse"
-
-:: Keep only latest 5 backups
-powershell -NoProfile -Command ^
-"$b=Get-ChildItem '%BACKUP_DIR%'|Sort LastWriteTime -Descending; if($b.Count -gt 5){$b|Select -Skip 5|Remove-Item -Recurse -Force}"
-
-echo Backup Created!
-
-echo.
-echo ======================================
-echo Deploy Started...
-echo ======================================
-
+echo ==========================
+echo Git Add
+echo ==========================
 git add .
 
+echo.
+echo ==========================
+echo Git Commit
+echo ==========================
 git commit -m "Website Update"
 
+echo.
+echo ==========================
+echo Git Push
+echo ==========================
 git push
 
 echo.
-echo ======================================
-echo Deploy Complete!
-echo ======================================
-echo.
-echo Your website:
-echo https://biteview-web.vercel.app
-echo.
+echo ==========================
+echo Done!
+echo ==========================
 pause
