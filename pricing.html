@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08090c">
+    <meta name="description" content="BiteView pricing plans for modern restaurants.">
+
+    <title>BiteView Pricing</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/sections.css">
+
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.166.1/examples/jsm/"
+      }
+    }
+    </script>
+</head>
+
+<body>
+<header class="site-header">
+    <nav class="navbar" aria-label="Primary navigation">
+        <a class="logo" href="index.html" aria-label="BiteView home">
+            <img src="assets/logo/biteview-logo.png" alt="BiteView logo">
+            <span>BiteView</span>
+        </a>
+        <button class="menu-btn" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false">
+            <span></span><span></span>
+        </button>
+        <div class="nav-links" id="mobile-menu">
+            <a href="index.html#benefits">Features</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="index.html#dishes">Demo</a>
+            <a href="index.html#footer">Contact</a>
+
+            <a href="pricing.html" class="primary-btn nav-cta-btn">
+                Get Started
+            </a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="content-section pricing-section" aria-labelledby="pricing-page-title">
+        <div class="section-heading reveal">
+            <p class="eyebrow">Pricing</p>
+            <h2 id="pricing-page-title">Simple pricing for every restaurant.</h2>
+            <p>Transparent plans for restaurants that want a premium digital presence.</p>
+        </div>
+
+        <div class="pricing-grid">
+            <article class="pricing-card reveal" data-reveal-delay="0">
+                <div class="pricing-card__header">
+                    <h3>Basic</h3>
+                    <div class="price">₹999<span>/month</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><span class="check">✔</span> Premium Mobile Website</li>
+                    <li><span class="check">✔</span> Digital Menu</li>
+                    <li><span class="check">✔</span> Up to 30 Menu Items</li>
+                    <li><span class="check">✔</span> WhatsApp Button</li>
+                    <li><span class="check">✔</span> Google Maps</li>
+                    <li><span class="check">✔</span> Free Hosting</li>
+                    <li><span class="check">✔</span> SSL Security</li>
+                </ul>
+                <a href="#footer" class="primary-btn pricing-btn">Get Started</a>
+            </article>
+
+            <article class="pricing-card pricing-card--popular reveal" data-reveal-delay="100">
+                <div class="popular-badge">MOST POPULAR</div>
+                <div class="pricing-card__header">
+                    <h3>Growth</h3>
+                    <div class="price">₹1,999<span>/month</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><span class="check">✔</span> Everything in Basic</li>
+                    <li><span class="check">✔</span> Interactive 3D Food Viewer</li>
+                    <li><span class="check">✔</span> QR Code Menu</li>
+                    <li><span class="check">✔</span> Unlimited Menu Items</li>
+                    <li><span class="check">✔</span> Instagram Feed</li>
+                    <li><span class="check">✔</span> Priority Support</li>
+                    <li><span class="check">✔</span> Monthly Design Improvements</li>
+                </ul>
+                <a href="#footer" class="primary-btn pricing-btn">Start Free Demo</a>
+            </article>
+
+            <article class="pricing-card reveal" data-reveal-delay="200">
+                <div class="pricing-card__header">
+                    <h3>Premium</h3>
+                    <div class="price">₹3,999<span>/month</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><span class="check">✔</span> Everything in Growth</li>
+                    <li><span class="check">✔</span> Custom Website</li>
+                    <li><span class="check">✔</span> Multiple Branch Support</li>
+                    <li><span class="check">✔</span> Analytics Dashboard</li>
+                    <li><span class="check">✔</span> Custom Branding</li>
+                    <li><span class="check">✔</span> Dedicated Support</li>
+                    <li><span class="check">✔</span> Future AR Ready</li>
+                </ul>
+                <a href="#footer" class="primary-btn pricing-btn">Contact Sales</a>
+            </article>
+        </div>
+    </section>
+
+    <section class="content-section faq-section" aria-labelledby="faq-title">
+        <div class="section-heading reveal">
+            <p class="eyebrow">FAQ</p>
+            <h2 id="faq-title">Common questions from restaurants.</h2>
+        </div>
+
+        <div class="faq-grid">
+            <article class="faq-card reveal" data-reveal-delay="0">
+                <h3>Can I upgrade later?</h3>
+                <p>Yes. You can move to a higher plan whenever your menu or location needs grow.</p>
+            </article>
+            <article class="faq-card reveal" data-reveal-delay="80">
+                <h3>Is setup included?</h3>
+                <p>Yes. We help with onboarding, structure, and a polished restaurant-ready launch.</p>
+            </article>
+            <article class="faq-card reveal" data-reveal-delay="160">
+                <h3>Do I need special hardware?</h3>
+                <p>No. Everything works on standard phones and tablets with a browser.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="content-section contact-cta" aria-labelledby="contact-cta-title">
+        <div class="section-heading reveal">
+            <p class="eyebrow">Contact</p>
+            <h2 id="contact-cta-title">Ready to bring your menu to life?</h2>
+            <p>Talk to us about launch timing, pricing, or a custom setup for your restaurant.</p>
+        </div>
+        <div class="hero-buttons">
+            <a href="mailto:hello@biteview.co" class="primary-btn">Email Us <span aria-hidden="true">↗</span></a>
+            <a href="index.html#dishes" class="secondary-btn">View Demo</a>
+        </div>
+    </section>
+</main>
+
+<footer id="footer" class="site-footer">
+    <div class="footer-main">
+        <div class="footer-brand"><a class="logo" href="index.html" aria-label="BiteView home"><img src="assets/logo/biteview-logo.png" alt="BiteView logo"><span>BiteView</span></a><p>Making restaurant menus impossible to forget.</p></div>
+        <div class="footer-nav"><p>Explore</p><a href="index.html#dishes">Featured dishes</a><a href="index.html#how-it-works">How it works</a><a href="index.html#restaurants">Restaurants</a></div>
+        <div class="footer-contact"><p>Get in touch</p><a href="mailto:hello@biteview.co">hello@biteview.co</a><div class="social-links"><a href="#footer" aria-label="Instagram">ig</a><a href="#footer" aria-label="LinkedIn">in</a><a href="#footer" aria-label="X">𝕏</a></div></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 BiteView. All rights reserved.</span><span>See before you order.</span></div>
+</footer>
+<script src="js/app.js" defer></script>
+<script type="module" src="js/viewer.js"></script>
+</body>
+</html>
