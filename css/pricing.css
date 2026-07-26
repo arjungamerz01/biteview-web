@@ -1,0 +1,542 @@
+/* ==========================================================================
+   BITEVIEW PRICING PAGE STYLES (SaaS Premium Quality)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Animated Background Gradients & Section Glows
+   -------------------------------------------------------------------------- */
+.pricing-section {
+    position: relative;
+    padding: 4rem 1.5rem 6rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.pricing-section::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 94, 0, 0.12) 0%, rgba(255, 94, 0, 0) 70%);
+    filter: blur(80px);
+    z-index: -1;
+    pointer-events: none;
+    animation: ambientGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes ambientGlow {
+    0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.7; }
+    100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   2. 3D Model Stage Placeholder Replacement
+   -------------------------------------------------------------------------- */
+.three-d-visual-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.three-d-orb {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ff8c00, #ff5e00, #000000);
+    box-shadow: 0 0 30px rgba(255, 94, 0, 0.5), inset -10px -10px 20px rgba(0, 0, 0, 0.8);
+    position: relative;
+    animation: orbFloat 4s ease-in-out infinite alternate;
+}
+
+.three-d-ring {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border: 2px solid rgba(255, 94, 0, 0.4);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(70deg) rotateY(15deg);
+    box-shadow: 0 0 15px rgba(255, 94, 0, 0.3);
+    animation: ringSpin 10s linear infinite;
+}
+
+@keyframes orbFloat {
+    0% { transform: translateY(-5px); }
+    100% { transform: translateY(10px); }
+}
+
+@keyframes ringSpin {
+    0% { transform: translate(-50%, -50%) rotateX(70deg) rotateY(0deg); }
+    100% { transform: translate(-50%, -50%) rotateX(70deg) rotateY(360deg); }
+}
+
+/* --------------------------------------------------------------------------
+   3. Trust Badges Section
+   -------------------------------------------------------------------------- */
+.trust-section {
+    max-width: 1100px;
+    margin: 1rem auto 4rem;
+    text-align: center;
+}
+
+.trust-title {
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.trust-badges-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.trust-badge-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.trust-badge-card:hover {
+    border-color: rgba(255, 94, 0, 0.3);
+    background: rgba(255, 94, 0, 0.03);
+    transform: translateY(-3px);
+}
+
+.trust-icon {
+    font-size: 1.5rem;
+    color: var(--primary, #ff5e00);
+}
+
+.trust-badge-card strong {
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.trust-badge-card span {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.775rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Interactive Billing Switcher
+   -------------------------------------------------------------------------- */
+.billing-switcher-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0 3.5rem;
+}
+
+.billing-switcher {
+    display: inline-flex;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 6px;
+    border-radius: 99px;
+    backdrop-filter: blur(12px);
+}
+
+.billing-option {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 10px 22px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.billing-option.active {
+    color: #ffffff;
+    background: var(--primary, #ff5e00);
+    box-shadow: 0 4px 20px rgba(255, 94, 0, 0.4);
+}
+
+.discount-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.billing-option:not(.active) .discount-badge {
+    background: rgba(255, 94, 0, 0.15);
+    color: var(--primary, #ff5e00);
+}
+
+/* --------------------------------------------------------------------------
+   5. Pricing Grid & Cards
+   -------------------------------------------------------------------------- */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.pricing-card {
+    background: rgba(18, 20, 26, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    backdrop-filter: blur(16px);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 94, 0, 0.35);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 94, 0, 0.1);
+}
+
+.pricing-card--popular {
+    background: linear-gradient(180deg, rgba(255, 94, 0, 0.09) 0%, rgba(18, 20, 26, 0.85) 100%);
+    border: 1.5px solid var(--primary, #ff5e00);
+    box-shadow: 0 10px 30px rgba(255, 94, 0, 0.18);
+    transform: scale(1.03);
+}
+
+.pricing-card--popular:hover {
+    transform: scale(1.03) translateY(-8px);
+    box-shadow: 0 25px 50px rgba(255, 94, 0, 0.3);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary, #ff5e00);
+    color: #fff;
+    font-size: 0.725rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    padding: 4px 18px;
+    border-radius: 99px;
+    box-shadow: 0 0 20px rgba(255, 94, 0, 0.7);
+    text-transform: uppercase;
+}
+
+.card-badge-subtle {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 99px;
+    margin-bottom: 1rem;
+}
+
+.pricing-card__header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.price-container {
+    margin: 1rem 0 0.25rem;
+    min-height: 85px;
+}
+
+.original-price {
+    font-size: 1.1rem;
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.4);
+    min-height: 1.3rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.price {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.price span {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.total-payable {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    min-height: 18px;
+    margin-top: 2px;
+}
+
+.savings-tag {
+    font-size: 0.825rem;
+    color: #10b981;
+    font-weight: 600;
+    min-height: 22px;
+    margin: 0.25rem 0 0.75rem;
+    transition: opacity 0.2s ease;
+}
+
+.plan-description {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.pricing-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.925rem;
+}
+
+.pricing-features .check {
+    color: var(--primary, #ff5e00);
+    font-weight: bold;
+}
+
+.pricing-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.pricing-btn:hover {
+    box-shadow: 0 8px 25px rgba(255, 94, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.price-updating {
+    opacity: 0;
+    transform: translateY(-6px);
+}
+
+/* --------------------------------------------------------------------------
+   6. Feature Comparison Table
+   -------------------------------------------------------------------------- */
+.comparison-section {
+    max-width: 1100px;
+    margin: 6rem auto 4rem;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    background: rgba(18, 20, 26, 0.5);
+    backdrop-filter: blur(12px);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 650px;
+}
+
+.comparison-table th, 
+.comparison-table td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 0.925rem;
+}
+
+.comparison-table th {
+    background: rgba(255, 255, 255, 0.02);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    width: 23%;
+}
+
+.comparison-table th:first-child {
+    width: 31%;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table td {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.comparison-table td:first-child {
+    color: #fff;
+    font-weight: 600;
+}
+
+.highlight-cell {
+    background: rgba(255, 94, 0, 0.04);
+}
+
+.table-check {
+    color: var(--primary, #ff5e00);
+    font-weight: bold;
+}
+
+.table-cross {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   7. Accordion FAQ Section
+   -------------------------------------------------------------------------- */
+.faq-section {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+.faq-accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: rgba(255, 94, 0, 0.3);
+}
+
+.faq-item.active {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 94, 0, 0.4);
+}
+
+.faq-trigger {
+    width: 100%;
+    padding: 1.35rem 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-icon {
+    font-size: 1.25rem;
+    color: var(--primary, #ff5e00);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.35s ease;
+    padding: 0 1.5rem;
+}
+
+.faq-item.active .faq-content {
+    max-height: 200px;
+    padding: 0 1.5rem 1.35rem;
+}
+
+.faq-content p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+    .pricing-card--popular {
+        transform: none;
+    }
+    .pricing-card--popular:hover {
+        transform: translateY(-8px);
+    }
+    .trust-badges-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .trust-badges-grid {
+        grid-template-columns: 1fr;
+    }
+    .billing-switcher {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .billing-option {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+}
