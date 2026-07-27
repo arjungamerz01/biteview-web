@@ -1,239 +1,652 @@
 /* =========================================================
-   SECTIONS — premium pass
+   BiteView — sections.css
+   Featured Dishes · How It Works · Our Work · Benefits · Footer
+   Mobile first · Dark premium glassmorphism · Orange accent
    ========================================================= */
 
-.content-section { width: min(100%, 1180px); margin: 0 auto; padding: 92px 24px; }
+/* =========================================================
+   SHARED SECTION SHELL
+   ========================================================= */
 
-/* ---------- SECTION HEADINGS (spacing only) ---------- */
-.section-heading { max-width: 640px; margin-bottom: 8px; }
-.eyebrow { margin-bottom: 14px; color: var(--orange-light); font-size: 10px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; }
-.section-heading h2 { max-width: 590px; font-size: clamp(2rem, 7.4vw, 3.65rem); letter-spacing: -1.8px; line-height: 1.08; }
-.section-heading > p:last-child { max-width: 490px; margin-top: 18px; color: var(--muted); font-size: 14px; line-height: 1.75; }
-
-/* ---------- GRIDS ---------- */
-.dish-grid, .restaurant-grid, .benefit-grid { display: grid; gap: 16px; margin-top: 40px; }
-
-/* ---------- SHARED CARD SHELL ---------- */
-.dish-card, .restaurant-card, .step-card, .benefit-card {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,.07);
-    border-radius: 18px;
-    background: var(--surface);
-    box-shadow: 0 12px 40px rgba(0,0,0,.35);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    transition: transform 250ms ease-out, border-color 250ms ease-out, box-shadow 250ms ease-out;
+.content-section {
+    width: min(100%, 1180px);
+    margin: 0 auto;
+    padding: 88px 22px;
 }
 
-.dish-card::before, .restaurant-card::before, .step-card::before, .benefit-card::before {
+.section-heading {
+    max-width: 640px;
+    margin-bottom: 6px;
+}
+
+.eyebrow {
+    margin-bottom: 14px;
+    color: var(--orange-light);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.section-heading h2 {
+    max-width: 590px;
+    font-size: clamp(2rem, 7.4vw, 3.65rem);
+    font-weight: 800;
+    letter-spacing: -1.8px;
+    line-height: 1.08;
+    text-wrap: balance;
+}
+
+.section-heading > p:last-child {
+    max-width: 490px;
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.78;
+    text-wrap: pretty;
+}
+
+.dish-grid,
+.restaurant-grid,
+.benefit-grid {
+    display: grid;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+/* Shared glass card shell */
+.dish-card,
+.restaurant-card,
+.step-card,
+.benefit-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .07);
+    border-radius: 18px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, .045), rgba(255, 255, 255, .012)),
+        var(--surface);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .07),
+        0 12px 40px rgba(0, 0, 0, .35);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    transition:
+        transform 250ms ease-out,
+        border-color 250ms ease-out,
+        box-shadow 250ms ease-out;
+}
+
+/* Diagonal light sweep on hover */
+.dish-card::before,
+.restaurant-card::before,
+.step-card::before,
+.benefit-card::before {
     position: absolute;
     inset: 0;
-    background: linear-gradient(116deg, transparent 24%, rgba(255,255,255,.055) 49%, transparent 60%);
+    z-index: 3;
     content: "";
+    background: linear-gradient(116deg, transparent 24%, rgba(255, 255, 255, .055) 49%, transparent 60%);
     opacity: 0;
     pointer-events: none;
     transform: translateX(-115%);
-    transition: transform .7s ease-out, opacity .3s ease-out;
+    transition: transform 700ms ease-out, opacity 300ms ease-out;
 }
 
-.dish-card:hover, .restaurant-card:hover, .step-card:hover, .benefit-card:hover {
-    border-color: rgba(255,255,255,.13);
-    box-shadow: 0 18px 52px rgba(0,0,0,.42);
+.dish-card:hover,
+.restaurant-card:hover,
+.step-card:hover,
+.benefit-card:hover {
+    border-color: rgba(255, 255, 255, .13);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .1),
+        0 18px 52px rgba(0, 0, 0, .44);
     transform: translateY(-4px);
 }
 
-.dish-card:hover::before, .restaurant-card:hover::before, .step-card:hover::before, .benefit-card:hover::before { opacity: 1; transform: translateX(115%); }
+.dish-card:hover::before,
+.restaurant-card:hover::before,
+.step-card:hover::before,
+.benefit-card:hover::before {
+    opacity: 1;
+    transform: translateX(115%);
+}
 
-/* ---------- FOOD CARDS ---------- */
+.dish-card h3,
+.restaurant-card h3,
+.step-card h3,
+.benefit-card h3 {
+    margin-top: 11px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -.6px;
+    line-height: 1.3;
+}
+
+.dish-card p,
+.step-card p,
+.benefit-card p {
+    margin-top: 9px;
+    color: var(--muted);
+    font-size: 12.5px;
+    line-height: 1.72;
+}
+
+/* =========================================================
+   1. FEATURED DISHES
+   ========================================================= */
+
 .dish-visual {
     position: relative;
     display: grid;
     min-height: 214px;
     overflow: hidden;
     place-items: center;
-    border-bottom: 1px solid rgba(255,255,255,.06);
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
 }
-.dish-visual::before, .dish-visual::after { position: absolute; border-radius: 50%; content: ""; }
-.dish-visual::before { width: 140px; height: 40px; bottom: 24px; background: rgba(0,0,0,.3); filter: blur(16px); }
+
+/* Contact shadow beneath the object */
+.dish-visual::before {
+    position: absolute;
+    bottom: 26px;
+    width: 138px;
+    height: 38px;
+    content: "";
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .32);
+    filter: blur(16px);
+}
+
+/* Soft white studio halo */
 .dish-visual::after {
-    width: 178px; height: 178px;
-    background: radial-gradient(circle at 50% 42%, rgba(255,255,255,.12), rgba(255,255,255,.03) 58%, transparent 72%);
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    content: "";
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 42%, rgba(255, 255, 255, .12), rgba(255, 255, 255, .028) 58%, transparent 72%);
     filter: blur(1px);
 }
+
 .dish-visual span {
     position: relative;
     z-index: 1;
     display: grid;
     place-items: center;
-    color: rgba(255,255,255,.92);
-    filter: drop-shadow(0 16px 20px rgba(0,0,0,.38));
-    transform: translateY(-6px) scale(1.08) rotate(-4deg);
-    transition: transform 350ms ease-out;
+    color: rgba(255, 255, 255, .92);
+    filter: drop-shadow(0 16px 20px rgba(0, 0, 0, .4));
+    transform: translateY(-6px) scale(1.06) rotate(-4deg);
+    transition: transform 380ms ease-out, color 380ms ease;
 }
-.dish-visual span svg { display: block; }
-.dish-card:hover .dish-visual span { transform: translateY(-9px) scale(1.16) rotate(3deg); }
 
+.dish-visual span svg { display: block; }
+
+.dish-card:hover .dish-visual span {
+    color: #fff;
+    transform: translateY(-9px) scale(1.14) rotate(3deg);
+}
+
+/* Corner glass chip */
 .dish-visual i {
     position: absolute;
     z-index: 2;
-    top: 15px; right: 17px;
-    width: 32px; height: 32px;
-    border: 1px solid rgba(255,255,255,.06);
+    top: 15px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255, 255, 255, .06);
     border-radius: 10px;
-    background: rgba(255,140,60,.08);
-    box-shadow: inset 0 1px 1px rgba(255,255,255,.05);
+    background: rgba(255, 140, 60, .08);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, .06);
     backdrop-filter: blur(9px);
     -webkit-backdrop-filter: blur(9px);
 }
 
-.dish-visual--pasta { background: radial-gradient(circle at 32% 20%, rgba(255,162,74,.17), transparent 46%), linear-gradient(150deg, #2c1a10, #100d10); }
-.dish-visual--sushi { background: radial-gradient(circle at 60% 22%, rgba(255,110,74,.15), transparent 46%), linear-gradient(150deg, #24141a, #0f1116); }
-.dish-visual--dessert { background: radial-gradient(circle at 45% 18%, rgba(198,140,255,.14), transparent 46%), linear-gradient(150deg, #221727, #100e13); }
+/* Per-dish gradient moods */
+.dish-visual--pasta {
+    background:
+        radial-gradient(circle at 32% 20%, rgba(255, 162, 74, .18), transparent 46%),
+        linear-gradient(150deg, #2c1a10, #100d10);
+}
+.dish-visual--sushi {
+    background:
+        radial-gradient(circle at 60% 22%, rgba(255, 110, 74, .16), transparent 46%),
+        linear-gradient(150deg, #24141a, #0f1116);
+}
+.dish-visual--dessert {
+    background:
+        radial-gradient(circle at 45% 18%, rgba(198, 140, 255, .15), transparent 46%),
+        linear-gradient(150deg, #221727, #100e13);
+}
 
 .dish-card__content { padding: 20px; }
-.card-meta, .card-footer, .restaurant-card__content > div { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.card-meta { color: #a9abb4; font-size: 10px; font-weight: 600; letter-spacing: .2px; }
-.rating { color: #ffc183 !important; white-space: nowrap; }
-.dish-card h3, .restaurant-card h3, .step-card h3, .benefit-card h3 { margin-top: 11px; font-size: 18px; letter-spacing: -.6px; }
-.dish-card p, .step-card p, .benefit-card p { margin-top: 9px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+
+.card-meta,
+.card-footer,
+.restaurant-card__content > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card-meta {
+    color: #a9abb4;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .3px;
+    text-transform: uppercase;
+}
+
+.rating {
+    color: #ffc183 !important;
+    white-space: nowrap;
+}
+
 .card-footer { margin-top: 20px; }
-.card-footer strong { color: #fff; font-size: 15px; }
+
+.card-footer strong {
+    color: #fff;
+    font-size: 15.5px;
+    letter-spacing: -.3px;
+}
 
 .card-button {
-    border: 1px solid rgba(255,255,255,.07);
+    border: 1px solid rgba(255, 255, 255, .07);
     border-radius: 14px;
-    padding: 8px 13px;
-    background: rgba(255,255,255,.03);
+    padding: 9px 14px;
+    background: rgba(255, 255, 255, .03);
     color: var(--orange-light);
     cursor: pointer;
     font: inherit;
     font-size: 11px;
     font-weight: 700;
-    transition: transform 250ms ease, background 250ms ease, color 250ms ease, box-shadow 250ms ease;
+    white-space: nowrap;
+    transition: transform 250ms ease, background 250ms ease, color 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
 }
-.card-button:hover { background: rgba(255,140,60,.1); color: #fff; box-shadow: 0 8px 22px rgba(0,0,0,.3); transform: scale(1.02); }
 
-/* ---------- HOW IT WORKS ---------- */
-.how-it-works { border-top: 1px solid rgba(255,255,255,.05); }
-.steps-list { display: grid; gap: 16px; margin-top: 40px; list-style: none; }
-.step-card { min-height: 194px; padding: 24px; }
-.step-number { position: absolute; top: 21px; right: 22px; color: rgba(255,255,255,.18); font-size: 11px; font-weight: 700; }
+.card-button:hover {
+    border-color: rgba(255, 255, 255, .12);
+    background: rgba(255, 140, 60, .11);
+    color: #fff;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .32);
+}
+
+.card-button:focus-visible {
+    outline: 2px solid rgba(255, 155, 92, .6);
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   2. HOW IT WORKS — timeline
+   ========================================================= */
+
+.how-it-works {
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, .05);
+}
+
+.steps-list {
+    position: relative;
+    display: grid;
+    gap: 16px;
+    margin-top: 40px;
+    list-style: none;
+}
+
+/* Vertical timeline rail (mobile) */
+.steps-list::before {
+    position: absolute;
+    top: 12px;
+    bottom: 12px;
+    left: 0;
+    width: 1px;
+    content: "";
+    background: linear-gradient(180deg, transparent, rgba(255, 140, 60, .3), rgba(255, 255, 255, .05), transparent);
+    pointer-events: none;
+}
+
+.step-card {
+    min-height: 190px;
+    padding: 24px;
+}
+
+.step-number {
+    position: absolute;
+    top: 21px;
+    right: 22px;
+    color: rgba(255, 255, 255, .18);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    transition: color 300ms ease;
+}
+
+.step-card:hover .step-number { color: rgba(255, 255, 255, .32); }
+
 .step-icon {
     display: grid;
-    width: 32px; height: 32px;
+    width: 32px;
+    height: 32px;
     place-items: center;
-    border: 1px solid rgba(255,255,255,.06);
+    border: 1px solid rgba(255, 255, 255, .06);
     border-radius: 10px;
-    background: rgba(255,140,60,.08);
-    box-shadow: inset 0 1px 1px rgba(255,255,255,.06);
+    background: rgba(255, 140, 60, .08);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, .06);
     color: var(--orange-light);
+    transition: transform 320ms ease-out, background 320ms ease, border-color 320ms ease;
 }
+
 .step-icon svg { display: block; }
 
-/* ---------- OUR WORK ---------- */
-.restaurant-showcase { padding-top: 40px; }
+.step-card:hover .step-icon {
+    border-color: rgba(255, 255, 255, .12);
+    background: rgba(255, 140, 60, .14);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* =========================================================
+   3. RESTAURANT SHOWCASE — Our Work
+   ========================================================= */
+
+.restaurant-showcase { padding-top: 44px; }
+
 .restaurant-visual {
     position: relative;
     display: grid;
-    min-height: 178px;
+    min-height: 180px;
+    overflow: hidden;
     place-items: center;
-    color: rgba(255,255,255,.68);
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
+    color: rgba(255, 255, 255, .7);
     text-align: center;
 }
+
 .restaurant-visual span {
+    position: relative;
+    z-index: 2;
     display: grid;
-    width: 56px; height: 56px;
+    width: 56px;
+    height: 56px;
     place-items: center;
-    border: 1px solid rgba(255,255,255,.07);
+    border: 1px solid rgba(255, 255, 255, .07);
     border-radius: 14px;
-    background: rgba(255,255,255,.03);
-    box-shadow: inset 0 1px 1px rgba(255,255,255,.05);
+    background: rgba(255, 255, 255, .03);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, .06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 420ms ease-out, background 420ms ease, border-color 420ms ease;
 }
+
 .restaurant-visual span svg { display: block; }
 
-.restaurant-visual--ember { background: radial-gradient(circle at 50% 88%, rgba(255,120,40,.18), transparent 52%), linear-gradient(150deg, #2a1a11, #131011); }
-.restaurant-visual--nori  { background: radial-gradient(circle at 50% 32%, rgba(92,190,150,.16), transparent 52%), linear-gradient(150deg, #0f2528, #0e1416); }
-.restaurant-visual--luma  { background: radial-gradient(circle at 48% 34%, rgba(240,186,104,.17), transparent 52%), linear-gradient(150deg, #33240f, #141112); }
+.restaurant-card:hover .restaurant-visual span {
+    border-color: rgba(255, 255, 255, .13);
+    background: rgba(255, 255, 255, .06);
+    transform: translateY(-3px) scale(1.04);
+}
+
+/* Placeholder moods — glow kept under 20% */
+.restaurant-visual--ember {
+    background:
+        radial-gradient(circle at 50% 86%, rgba(255, 120, 40, .18), transparent 52%),
+        linear-gradient(150deg, #2a1a11, #131011);
+}
+.restaurant-visual--nori {
+    background:
+        radial-gradient(circle at 50% 32%, rgba(92, 190, 150, .17), transparent 52%),
+        linear-gradient(150deg, #0f2528, #0e1416);
+}
+.restaurant-visual--luma {
+    background:
+        radial-gradient(circle at 48% 34%, rgba(240, 186, 104, .18), transparent 52%),
+        linear-gradient(150deg, #33240f, #141112);
+}
 
 .restaurant-card__content { padding: 18px 19px 20px; }
-.restaurant-card__content > span { color: var(--muted); font-size: 10px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; }
-.restaurant-card__content h3 { margin: 8px 0 16px; }
-.restaurant-card__content > div { color: var(--orange-light); font-size: 11px; font-weight: 700; }
-.restaurant-card__content > div > span { color: var(--muted); font-weight: 600; }
-.restaurant-card__content a { border-radius: 14px; text-decoration: none; transition: color 250ms ease, transform 250ms ease; }
-.restaurant-card__content a:hover { color: #fff; transform: scale(1.02); }
 
-/* ---------- BENEFITS ---------- */
+.restaurant-card__content > span {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+}
+
+.restaurant-card__content h3 { margin: 8px 0 16px; }
+
+.restaurant-card__content > div {
+    color: var(--orange-light);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.restaurant-card__content > div > span {
+    color: var(--muted);
+    font-weight: 600;
+    letter-spacing: .3px;
+}
+
+.restaurant-card__content a {
+    border-radius: 14px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 250ms ease, transform 250ms ease-out;
+}
+
+.restaurant-card__content a:hover { color: #fff; }
+
+.restaurant-card__content a:focus-visible {
+    outline: 2px solid rgba(255, 155, 92, .6);
+    outline-offset: 3px;
+}
+
+/* =========================================================
+   4. BENEFITS
+   ========================================================= */
+
 .benefits { padding-bottom: 98px; }
-.benefit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-.benefit-card { min-height: 170px; padding: 20px; }
+
+.benefit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.benefit-card {
+    min-height: 172px;
+    padding: 20px;
+    background:
+        radial-gradient(120% 90% at 0% 0%, rgba(255, 140, 60, .06), transparent 58%),
+        linear-gradient(180deg, rgba(255, 255, 255, .045), rgba(255, 255, 255, .012)),
+        var(--surface);
+}
+
 .benefit-card > span {
     display: grid;
-    width: 32px; height: 32px;
+    width: 32px;
+    height: 32px;
     place-items: center;
-    border: 1px solid rgba(255,255,255,.06);
+    border: 1px solid rgba(255, 255, 255, .06);
     border-radius: 10px;
-    background: rgba(255,140,60,.08);
-    box-shadow: inset 0 1px 1px rgba(255,255,255,.06);
+    background: rgba(255, 140, 60, .08);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, .06);
     color: var(--orange-light);
+    transition: transform 380ms ease-out, background 380ms ease, border-color 380ms ease;
 }
+
 .benefit-card > span svg { display: block; }
+
+.benefit-card:hover > span {
+    border-color: rgba(255, 255, 255, .13);
+    background: rgba(255, 140, 60, .14);
+    transform: scale(1.05);
+}
+
 .benefit-card h3 { margin-top: 20px; font-size: 15px; }
-.benefit-card p { font-size: 11px; }
+.benefit-card p { font-size: 11.5px; }
 
-/* ---------- BUTTONS (shared polish) ---------- */
-.primary-btn, .secondary-btn {
-    border-radius: 14px;
-    transition: transform 250ms ease, box-shadow 250ms ease, background 250ms ease, border-color 250ms ease;
-}
-.primary-btn {
-    border: 1px solid rgba(255,255,255,.07);
-    background: linear-gradient(180deg, #FF7A2F, #FF5A00);
-    box-shadow: 0 12px 40px rgba(255,90,0,.18), inset 0 1px 0 rgba(255,255,255,.16);
-}
-.primary-btn:hover { box-shadow: 0 16px 46px rgba(255,90,0,.26), inset 0 1px 0 rgba(255,255,255,.2); transform: scale(1.02); }
-.secondary-btn {
-    border: 1px solid rgba(255,255,255,.07);
-    background: rgba(255,255,255,.03);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
-}
-.secondary-btn:hover { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); transform: scale(1.02); }
-.badge { border-radius: 999px; }
+/* =========================================================
+   5. FOOTER
+   ========================================================= */
 
-/* ---------- FOOTER ---------- */
-.site-footer { position: relative; overflow: hidden; padding: 56px 24px 22px; border-top: 1px solid rgba(255,255,255,.07); background: rgba(255,255,255,.018); }
-.site-footer::before { position: absolute; top: -180px; left: 50%; width: 360px; height: 260px; border-radius: 50%; background: rgba(255,106,22,.08); content: ""; filter: blur(70px); transform: translateX(-50%); }
-.footer-main, .footer-bottom { position: relative; z-index: 1; width: min(100%, 1132px); margin: 0 auto; }
-.footer-main { display: grid; gap: 34px; }
-.footer-brand p { max-width: 230px; margin-top: 14px; color: var(--muted); font-size: 12px; line-height: 1.7; }
-.footer-nav, .footer-contact { display: grid; gap: 11px; align-content: start; }
-.footer-nav p, .footer-contact p { margin-bottom: 3px; color: #fff; font-size: 11px; font-weight: 700; }
-.footer-nav a, .footer-contact > a { color: var(--muted); font-size: 12px; text-decoration: none; transition: color 250ms ease; }
-.footer-nav a:hover, .footer-contact > a:hover { color: var(--orange-light); }
+.site-footer {
+    position: relative;
+    overflow: hidden;
+    padding: 58px 22px 22px;
+    border-top: 1px solid rgba(255, 255, 255, .07);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, .022), rgba(255, 255, 255, .006));
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
 
-.social-links { display: flex; gap: 9px; margin-top: 7px; }
+.site-footer::before {
+    position: absolute;
+    top: -180px;
+    left: 50%;
+    width: 380px;
+    height: 260px;
+    content: "";
+    border-radius: 50%;
+    background: rgba(255, 106, 22, .09);
+    filter: blur(74px);
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.footer-main,
+.footer-bottom {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 1132px);
+    margin: 0 auto;
+}
+
+.footer-main {
+    display: grid;
+    gap: 34px;
+}
+
+.footer-brand p {
+    max-width: 240px;
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.72;
+}
+
+.footer-nav,
+.footer-contact {
+    display: grid;
+    gap: 11px;
+    align-content: start;
+}
+
+.footer-nav p,
+.footer-contact p {
+    margin-bottom: 3px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+
+.footer-nav a,
+.footer-contact > a {
+    color: var(--muted);
+    font-size: 12px;
+    text-decoration: none;
+    transition: color 240ms ease;
+}
+
+.footer-nav a:hover,
+.footer-contact > a:hover { color: var(--orange-light); }
+
+.social-links {
+    display: flex;
+    gap: 9px;
+    margin-top: 7px;
+}
+
 .social-links a {
     display: grid;
-    width: 32px; height: 32px;
+    width: 32px;
+    height: 32px;
     place-items: center;
-    border: 1px solid rgba(255,255,255,.06);
+    border: 1px solid rgba(255, 255, 255, .06);
     border-radius: 10px;
-    background: rgba(255,140,60,.08);
-    box-shadow: inset 0 1px 1px rgba(255,255,255,.06);
+    background: rgba(255, 140, 60, .08);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, .06);
     color: #e4e4e7;
     text-decoration: none;
-    transition: background 250ms ease, color 250ms ease, transform 250ms ease, border-color 250ms ease;
+    transition: background 260ms ease, border-color 260ms ease, color 260ms ease, transform 260ms ease-out, box-shadow 260ms ease;
 }
+
 .social-links a svg { display: block; }
-.social-links a:hover { background: rgba(255,140,60,.14); border-color: rgba(255,255,255,.12); color: #fff; transform: translateY(-2px) scale(1.02); }
 
-.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin-top: 46px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.07); color: #777983; font-size: 10px; }
+.social-links a:hover {
+    border-color: rgba(255, 255, 255, .13);
+    background: rgba(255, 140, 60, .15);
+    color: #fff;
+}
 
-/* ---------- RESPONSIVE (unchanged layout) ---------- */
+.social-links a:focus-visible,
+.footer-nav a:focus-visible,
+.footer-contact > a:focus-visible {
+    outline: 2px solid rgba(255, 155, 92, .6);
+    outline-offset: 3px;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 46px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, .07);
+    color: #777983;
+    font-size: 10px;
+    letter-spacing: .2px;
+}
+
+/* =========================================================
+   RESPONSIVE — progressive enhancement
+   ========================================================= */
+
 @media (min-width: 600px) {
-    .dish-grid, .restaurant-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .content-section { padding: 96px 24px; }
+
+    .dish-grid,
+    .restaurant-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
     .steps-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    /* Horizontal timeline rail */
+    .steps-list::before {
+        top: 50%;
+        right: 8px;
+        bottom: auto;
+        left: 8px;
+        width: auto;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255, 140, 60, .28), rgba(255, 255, 255, .05), transparent);
+    }
+
     .benefit-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
     .footer-main { grid-template-columns: 1.8fr 1fr 1fr; }
+}
+
+@media (min-width: 1024px) {
+    .content-section { padding: 108px 24px; }
+
+    .dish-grid,
+    .restaurant-grid,
+    .steps-list { gap: 18px; }
+
+    .dish-visual { min-height: 228px; }
+    .restaurant-visual { min-height: 192px; }
+    .benefit-card { min-height: 180px; }
+    .site-footer { padding: 66px 24px 24px; }
 }

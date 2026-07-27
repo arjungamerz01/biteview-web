@@ -1,14 +1,621 @@
-.hero-copy { animation: reveal-up .75s cubic-bezier(.2,.8,.2,1) both; }
-.model-stage { animation: reveal-up .9s .14s cubic-bezier(.2,.8,.2,1) both; }
-.model-card { animation: card-float 6s ease-in-out infinite; }
-.model-card__shine { animation: shine 7s ease-in-out infinite; }
-.model-orbit--one { animation: orbit-one 13s linear infinite; }
-.model-orbit--two { animation: orbit-two 16s linear infinite; }
-.scroll b { animation: bounce 1.7s ease-in-out infinite; }
-.reveal { opacity: 1; filter: none; transform: none; transition: transform .35s cubic-bezier(.2,.8,.2,1), filter .35s ease; }
-@keyframes reveal-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes card-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
-@keyframes shine { 0%, 35% { transform: translateX(-80%) rotate(27deg); } 65%, 100% { transform: translateX(260%) rotate(27deg); } }
-@keyframes orbit-one { to { transform: rotate(340deg); } }
-@keyframes orbit-two { to { transform: rotate(-318deg); } }
-@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+/* =========================================================
+   BiteView — animations.css
+   Premium dark glassmorphism motion layer
+   GPU-friendly: transform / opacity / filter only
+   ========================================================= */
+
+:root {
+    --anim-ease: cubic-bezier(.22, .8, .26, 1);
+    --anim-ease-out: cubic-bezier(.16, 1, .3, 1);
+    --anim-fast: 220ms;
+    --anim-base: 420ms;
+    --anim-slow: 720ms;
+}
+
+/* =========================================================
+   1. KEYFRAME LIBRARY
+   ========================================================= */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translate3d(0, 18px, 0); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes fadeUpSoft {
+    from { opacity: 0; transform: translate3d(0, 12px, 0); filter: blur(6px); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(.96); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes cardIn {
+    from { opacity: 0; transform: translate3d(0, 22px, 0) scale(.97); filter: blur(8px); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0) scale(1); filter: blur(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50%      { transform: translate3d(0, -6px, 0); }
+}
+
+@keyframes floatSoft {
+    0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+    50%      { transform: translate3d(0, -4px, 0) rotate(-1.5deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: .55; transform: scale(.9); }
+}
+
+@keyframes glow {
+    0%, 100% { opacity: .45; }
+    50%      { opacity: .9; }
+}
+
+@keyframes breathe {
+    0%, 100% { opacity: .5; transform: translateX(-50%) scale(1); }
+    50%      { opacity: .85; transform: translateX(-50%) scale(1.06); }
+}
+
+@keyframes shimmer {
+    0%   { transform: translate3d(-140%, 0, 0); }
+    100% { transform: translate3d(240%, 0, 0); }
+}
+
+@keyframes sweep {
+    0%   { transform: rotate(27deg) translate3d(-40%, 0, 0); opacity: .35; }
+    45%  { opacity: .95; }
+    100% { transform: rotate(27deg) translate3d(180%, 0, 0); opacity: .35; }
+}
+
+@keyframes orbitSpinOne {
+    from { transform: rotate(-20deg) scale(1); }
+    50%  { transform: rotate(-14deg) scale(1.015); }
+    to   { transform: rotate(-20deg) scale(1); }
+}
+
+@keyframes orbitSpinTwo {
+    from { transform: rotate(42deg) scale(1); }
+    50%  { transform: rotate(48deg) scale(1.02); }
+    to   { transform: rotate(42deg) scale(1); }
+}
+
+@keyframes bloomPulse {
+    0%, 100% { opacity: .5; filter: blur(20px); }
+    50%      { opacity: .8; filter: blur(26px); }
+}
+
+@keyframes dropIn {
+    from { opacity: 0; transform: translate3d(0, -8px, 0) scale(.97); filter: blur(4px); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0) scale(1); filter: blur(0); }
+}
+
+@keyframes bob {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50%      { transform: translate3d(0, 4px, 0); }
+}
+
+/* =========================================================
+   2. REVEAL ON SCROLL
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0) scale(.98);
+    filter: blur(7px);
+    will-change: opacity, transform, filter;
+    transition:
+        opacity var(--anim-slow) var(--anim-ease-out),
+        transform var(--anim-slow) var(--anim-ease-out),
+        filter var(--anim-slow) var(--anim-ease-out);
+}
+
+.reveal.active,
+.reveal.is-visible,
+.reveal.visible,
+.reveal.in-view {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+}
+
+/* Stagger — grids and lists */
+.dish-grid .reveal:nth-child(1),
+.restaurant-grid .reveal:nth-child(1),
+.benefit-grid .reveal:nth-child(1),
+.steps-list .reveal:nth-child(1) { transition-delay: 60ms; }
+
+.dish-grid .reveal:nth-child(2),
+.restaurant-grid .reveal:nth-child(2),
+.benefit-grid .reveal:nth-child(2),
+.steps-list .reveal:nth-child(2) { transition-delay: 150ms; }
+
+.dish-grid .reveal:nth-child(3),
+.restaurant-grid .reveal:nth-child(3),
+.benefit-grid .reveal:nth-child(3),
+.steps-list .reveal:nth-child(3) { transition-delay: 240ms; }
+
+.dish-grid .reveal:nth-child(4),
+.restaurant-grid .reveal:nth-child(4),
+.benefit-grid .reveal:nth-child(4),
+.steps-list .reveal:nth-child(4) { transition-delay: 330ms; }
+
+.benefit-grid .reveal:nth-child(5) { transition-delay: 420ms; }
+.benefit-grid .reveal:nth-child(6) { transition-delay: 510ms; }
+
+/* Section headings lead their grid */
+.section-heading.reveal { transition-delay: 0ms; }
+
+/* Release compositing hints once settled */
+.reveal.active { will-change: auto; }
+
+/* =========================================================
+   3. HERO ENTRANCE
+   ========================================================= */
+
+.hero .badge {
+    opacity: 0;
+    animation: fadeUpSoft 700ms var(--anim-ease-out) 120ms both;
+}
+
+.hero h1 {
+    opacity: 0;
+    animation: fadeUp 820ms var(--anim-ease-out) 220ms both;
+}
+
+.hero .subtitle {
+    opacity: 0;
+    animation: fadeUpSoft 780ms var(--anim-ease-out) 360ms both;
+}
+
+.hero-buttons {
+    opacity: 0;
+    animation: fadeUp 720ms var(--anim-ease-out) 480ms both;
+}
+
+.hero .model-stage {
+    opacity: 0;
+    animation: cardIn 1000ms var(--anim-ease-out) 380ms both;
+}
+
+.hero .scroll {
+    opacity: 0;
+    animation: fadeIn 700ms ease-out 900ms both;
+}
+
+.hero .scroll b {
+    display: inline-block;
+    animation: bob 2.4s ease-in-out 1.6s infinite;
+}
+
+.badge-dot {
+    animation: pulse 2.4s ease-in-out infinite;
+}
+
+/* =========================================================
+   4. BUTTONS
+   ========================================================= */
+
+.primary-btn,
+.secondary-btn,
+.card-button {
+    will-change: transform;
+}
+
+.primary-btn::after {
+    animation: bloomPulse 4.2s ease-in-out infinite;
+}
+
+.primary-btn:hover::after {
+    animation-duration: 2.4s;
+}
+
+.primary-btn:active,
+.secondary-btn:active,
+.card-button:active {
+    transform: translate3d(0, 1px, 0) scale(.985);
+    transition-duration: 90ms;
+}
+
+.nav-cta-btn:active {
+    transform: scale(.985);
+}
+
+/* Shimmer pass across primary buttons on hover */
+.primary-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-btn::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    content: "";
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .28), transparent);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(-140%, 0, 0);
+}
+
+.primary-btn:hover::before {
+    opacity: 1;
+    animation: shimmer 900ms var(--anim-ease-out) 1;
+}
+
+/* =========================================================
+   5. NAVBAR
+   ========================================================= */
+
+.navbar {
+    animation: dropIn 760ms var(--anim-ease-out) both;
+    transition:
+        background 320ms var(--anim-ease),
+        border-color 320ms var(--anim-ease),
+        box-shadow 320ms var(--anim-ease),
+        backdrop-filter 320ms var(--anim-ease),
+        -webkit-backdrop-filter 320ms var(--anim-ease);
+}
+
+.nav-links.is-open {
+    animation: dropIn 300ms var(--anim-ease-out) both;
+    transform-origin: top right;
+}
+
+.nav-links.is-open a {
+    opacity: 0;
+    animation: fadeUp 320ms var(--anim-ease-out) both;
+}
+.nav-links.is-open a:nth-child(1) { animation-delay: 40ms; }
+.nav-links.is-open a:nth-child(2) { animation-delay: 80ms; }
+.nav-links.is-open a:nth-child(3) { animation-delay: 120ms; }
+.nav-links.is-open a:nth-child(4) { animation-delay: 160ms; }
+.nav-links.is-open a:nth-child(5) { animation-delay: 200ms; }
+
+.menu-btn span {
+    transition: transform 280ms var(--anim-ease), opacity 200ms ease;
+}
+.menu-btn[aria-expanded="true"] span:first-child { transform: translateY(3.25px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span:last-child  { transform: translateY(-3.25px) rotate(-45deg); }
+
+/* =========================================================
+   6. MODEL CARD
+   ========================================================= */
+
+.model-card {
+    animation: floatSoft 7.5s ease-in-out 1.2s infinite;
+    will-change: transform;
+}
+
+.model-card:hover {
+    animation-play-state: paused;
+}
+
+.model-card__shine {
+    animation: sweep 9s var(--anim-ease) 2s infinite;
+    will-change: transform, opacity;
+}
+
+.model-stage::before {
+    animation: breathe 6.5s ease-in-out infinite;
+}
+
+.model-card::after {
+    animation: glow 5.5s ease-in-out infinite;
+}
+
+.model-orbit--one {
+    animation: orbitSpinOne 14s ease-in-out infinite;
+}
+
+.model-orbit--two {
+    animation: orbitSpinTwo 17s ease-in-out infinite;
+}
+
+.model-status span {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.model-hint .drag-icon {
+    display: inline-block;
+    animation: float 2.8s ease-in-out infinite;
+}
+
+/* =========================================================
+   7. DISH CARDS
+   ========================================================= */
+
+.dish-card {
+    transition:
+        transform 260ms var(--anim-ease-out),
+        box-shadow 260ms var(--anim-ease-out),
+        border-color 260ms var(--anim-ease-out);
+}
+
+.dish-card:hover {
+    transform: translate3d(0, -4px, 0);
+}
+
+.dish-visual span {
+    animation: floatSoft 6s ease-in-out infinite;
+    will-change: transform;
+}
+
+.dish-card:hover .dish-visual span {
+    animation-play-state: paused;
+}
+
+.dish-visual i {
+    transition: transform 300ms var(--anim-ease-out), background 300ms ease, border-color 300ms ease;
+}
+.dish-card:hover .dish-visual i {
+    background: rgba(255, 140, 60, .14);
+    border-color: rgba(255, 255, 255, .12);
+    transform: translate3d(0, -2px, 0) scale(1.04);
+}
+
+.card-footer strong {
+    transition: opacity 260ms ease, transform 260ms var(--anim-ease-out), color 260ms ease;
+}
+.dish-card:hover .card-footer strong {
+    transform: translate3d(0, -1px, 0);
+}
+
+.card-button {
+    transition:
+        transform 260ms var(--anim-ease-out),
+        background 260ms ease,
+        color 260ms ease,
+        box-shadow 260ms ease;
+}
+.dish-card:hover .card-button {
+    transform: translate3d(3px, 0, 0);
+}
+.card-button:hover {
+    transform: translate3d(5px, 0, 0) scale(1.02);
+}
+
+/* =========================================================
+   8. STEP CARDS
+   ========================================================= */
+
+.step-card {
+    transition:
+        transform 260ms var(--anim-ease-out),
+        box-shadow 260ms var(--anim-ease-out),
+        border-color 260ms var(--anim-ease-out);
+}
+.step-card:hover { transform: translate3d(0, -4px, 0); }
+
+.step-icon {
+    transition: transform 320ms var(--anim-ease-out), background 320ms ease, border-color 320ms ease;
+}
+.step-card:hover .step-icon {
+    background: rgba(255, 140, 60, .13);
+    border-color: rgba(255, 255, 255, .12);
+    transform: translate3d(0, -2px, 0) scale(1.05);
+}
+
+.step-number {
+    transition: color 300ms ease;
+}
+.step-card:hover .step-number { color: rgba(255, 255, 255, .32); }
+
+/* =========================================================
+   9. BENEFIT CARDS
+   ========================================================= */
+
+.benefit-card {
+    transition:
+        transform 260ms var(--anim-ease-out),
+        box-shadow 260ms var(--anim-ease-out),
+        border-color 260ms var(--anim-ease-out);
+}
+.benefit-card:hover {
+    transform: translate3d(0, -4px, 0);
+    border-color: rgba(255, 155, 92, .16);
+}
+
+.benefit-card > span {
+    transition: transform 380ms var(--anim-ease-out), background 380ms ease, border-color 380ms ease;
+}
+.benefit-card:hover > span {
+    background: rgba(255, 140, 60, .14);
+    border-color: rgba(255, 255, 255, .13);
+    transform: rotate(-6deg) scale(1.06);
+}
+
+/* Soft border glow on hover */
+.benefit-card::after {
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    content: "";
+    box-shadow: inset 0 0 0 1px rgba(255, 140, 60, .22), 0 0 26px rgba(255, 106, 22, .1);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 320ms ease;
+}
+.benefit-card:hover::after { opacity: 1; }
+
+/* =========================================================
+   10. RESTAURANT / OUR WORK CARDS
+   ========================================================= */
+
+.restaurant-card {
+    transition:
+        transform 300ms var(--anim-ease-out),
+        box-shadow 300ms var(--anim-ease-out),
+        border-color 300ms var(--anim-ease-out);
+}
+.restaurant-card:hover { transform: translate3d(0, -4px, 0); }
+
+.restaurant-visual {
+    transition: transform 620ms var(--anim-ease-out), filter 620ms var(--anim-ease-out);
+    will-change: transform;
+}
+.restaurant-card:hover .restaurant-visual {
+    transform: scale(1.045);
+    filter: saturate(1.08) brightness(1.04);
+}
+
+/* Gradient overlay drift */
+.restaurant-visual::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background: linear-gradient(180deg, transparent 38%, rgba(8, 9, 12, .38) 100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 420ms ease;
+}
+.restaurant-card:hover .restaurant-visual::after { opacity: 1; }
+
+.restaurant-visual span {
+    transition: transform 420ms var(--anim-ease-out), background 420ms ease, border-color 420ms ease;
+}
+.restaurant-card:hover .restaurant-visual span {
+    background: rgba(255, 255, 255, .06);
+    border-color: rgba(255, 255, 255, .13);
+    transform: translate3d(0, -3px, 0) scale(1.04);
+}
+
+.restaurant-card__content a {
+    transition: color 260ms ease, transform 260ms var(--anim-ease-out);
+}
+.restaurant-card:hover .restaurant-card__content a {
+    color: #fff;
+    transform: translate3d(3px, 0, 0);
+}
+
+/* =========================================================
+   11. FOOTER
+   ========================================================= */
+
+.footer-nav a,
+.footer-contact > a {
+    position: relative;
+    display: inline-block;
+    transition: color 240ms ease, transform 240ms var(--anim-ease-out);
+}
+
+.footer-nav a::after,
+.footer-contact > a::after {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    content: "";
+    background: linear-gradient(90deg, rgba(255, 155, 92, .9), rgba(255, 106, 22, .35));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 300ms var(--anim-ease-out);
+}
+
+.footer-nav a:hover::after,
+.footer-contact > a:hover::after { transform: scaleX(1); }
+
+.footer-nav a:hover,
+.footer-contact > a:hover { transform: translate3d(1px, 0, 0); }
+
+.social-links a {
+    transition:
+        transform 260ms var(--anim-ease-out),
+        background 260ms ease,
+        border-color 260ms ease,
+        color 260ms ease,
+        box-shadow 260ms ease;
+}
+.social-links a:hover {
+    transform: translate3d(0, -3px, 0) scale(1.04);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .34), inset 0 1px 0 rgba(255, 255, 255, .1);
+}
+.social-links a svg {
+    transition: transform 300ms var(--anim-ease-out);
+}
+.social-links a:hover svg { transform: scale(1.06); }
+
+.site-footer::before {
+    animation: glow 8s ease-in-out infinite;
+}
+
+/* =========================================================
+   12. LOADING / STATE UTILITIES
+   ========================================================= */
+
+.is-loading,
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, .035);
+}
+
+.is-loading::after,
+.skeleton::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45%;
+    height: 100%;
+    content: "";
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .07), transparent);
+    animation: shimmer 1.5s linear infinite;
+    pointer-events: none;
+}
+
+.animate-pulse   { animation: pulse 2.2s ease-in-out infinite; }
+.animate-float   { animation: float 5.5s ease-in-out infinite; }
+.animate-glow    { animation: glow 4.5s ease-in-out infinite; }
+.animate-shimmer { animation: shimmer 1.6s linear infinite; }
+.animate-fade-up { animation: fadeUp 640ms var(--anim-ease-out) both; }
+.animate-fade-in { animation: fadeIn 520ms ease-out both; }
+.animate-scale-in{ animation: scaleIn 560ms var(--anim-ease-out) both; }
+
+/* =========================================================
+   13. DELAY UTILITIES
+   ========================================================= */
+
+.animate-delay-1 { animation-delay: 100ms; transition-delay: 100ms; }
+.animate-delay-2 { animation-delay: 220ms; transition-delay: 220ms; }
+.animate-delay-3 { animation-delay: 340ms; transition-delay: 340ms; }
+.animate-delay-4 { animation-delay: 460ms; transition-delay: 460ms; }
+
+/* =========================================================
+   14. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal,
+    .reveal.active,
+    .hero .badge,
+    .hero h1,
+    .hero .subtitle,
+    .hero-buttons,
+    .hero .model-stage,
+    .hero .scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+}
