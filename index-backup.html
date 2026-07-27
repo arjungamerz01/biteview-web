@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#08090c">
+    <meta name="description"
+        content="BiteView transforms restaurant menus into interactive 3D digital experiences. See before you order.">
+
+    <title>BiteView | See Before You Order</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/sections.css">
+
+    <!-- Three.js -->
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.166.1/examples/jsm/"
+      }
+    }
+    </script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <nav class="navbar" aria-label="Primary Navigation">
+
+        <a href="index.html" class="logo" aria-label="BiteView Home">
+            <img src="assets/logo/biteview-logo.png" alt="BiteView Logo">
+            <span>BiteView</span>
+        </a>
+
+        <button
+            class="menu-btn"
+            type="button"
+            aria-label="Open Navigation"
+            aria-expanded="false"
+            aria-controls="mobile-menu">
+
+            <span></span>
+            <span></span>
+
+        </button>
+
+        <div class="nav-links" id="mobile-menu">
+
+            <a href="#benefits">Features</a>
+
+            <a href="pricing.html">Pricing</a>
+
+            <a href="#dishes">Demo</a>
+
+            <a href="#footer">Contact</a>
+
+            <a href="pricing.html" class="primary-btn nav-cta-btn">
+                Get Started
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+<main>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" aria-labelledby="hero-title">
+
+        <div class="hero-copy">
+
+            <p class="badge">
+                <span class="badge-dot"></span>
+                Interactive 3D Restaurant Menus
+            </p>
+
+            <h1 id="hero-title">
+
+                See Before<br>
+                <span>You Order.</span>
+
+            </h1>
+
+            <p class="subtitle">
+
+                Transform your restaurant menu into an immersive
+                3D digital experience that helps customers choose
+                with confidence and increases sales.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#dishes" class="primary-btn">
+
+                    Explore Demo
+
+                    <span aria-hidden="true">↗</span>
+
+                </a>
+
+                <a href="pricing.html" class="secondary-btn">
+
+                    View Pricing
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="model-stage">
+
+            <div class="model-card">
+
+                <div class="model-card__shine"></div>
+
+                <div class="model-status">
+
+                    <span></span>
+
+                    Interactive 3D Preview
+
+                </div>
+
+                <canvas id="model-viewer"></canvas>
+
+                <div class="model-hint">
+
+                    <span class="drag-icon">↔</span>
+
+                    Drag to Rotate
+
+                </div>
+
+                <div class="model-orbit model-orbit--one"></div>
+
+                <div class="model-orbit model-orbit--two"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+        <!-- TRUST SECTION -->
+    <section class="home-trust-section reveal">
+        <div class="home-glow-orb glow-top-right"></div>
+
+        <div class="trust-badge-label">
+            <span class="star">★</span>
+            Trusted by Modern Restaurants
+        </div>
+
+        <div class="home-trust-grid">
+
+            <div class="trust-glass-card">
+                <span class="icon">⚡</span>
+                <strong>24 Hour Setup</strong>
+                <span>Fast onboarding</span>
+            </div>
+
+            <div class="trust-glass-card">
+                <span class="icon">📱</span>
+                <strong>Works Everywhere</strong>
+                <span>Android • iPhone</span>
+            </div>
+
+            <div class="trust-glass-card">
+                <span class="icon">🛡️</span>
+                <strong>Secure</strong>
+                <span>SSL Protected</span>
+            </div>
+
+            <div class="trust-glass-card">
+                <span class="icon">☁️</span>
+                <strong>Cloud Hosted</strong>
+                <span>Always Available</span>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="home-section reveal">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                How It Works
+            </p>
+
+            <h2>
+                From Scan To Order
+            </h2>
+
+            <p>
+                Your customers experience every dish before placing an order.
+            </p>
+
+        </div>
+
+        <div class="how-it-works-grid">
+
+            <div class="timeline-card">
+
+                <span class="timeline-step-num">
+                    01
+                </span>
+
+                <div class="timeline-icon">
+                    📷
+                </div>
+
+                <h3>
+                    Scan QR
+                </h3>
+
+                <p>
+                    Customers simply scan your QR code with their phone.
+                </p>
+
+            </div>
+
+            <div class="timeline-card">
+
+                <span class="timeline-step-num">
+                    02
+                </span>
+
+                <div class="timeline-icon">
+                    📖
+                </div>
+
+                <h3>
+                    Open Menu
+                </h3>
+
+                <p>
+                    The digital menu opens instantly in the browser.
+                </p>
+
+            </div>
+
+            <div class="timeline-card">
+
+                <span class="timeline-step-num">
+                    03
+                </span>
+
+                <div class="timeline-icon">
+                    🧊
+                </div>
+
+                <h3>
+                    Explore 3D
+                </h3>
+
+                <p>
+                    Rotate and inspect every food item in interactive 3D.
+                </p>
+
+            </div>
+
+            <div class="timeline-card">
+
+                <span class="timeline-step-num">
+                    04
+                </span>
+
+                <div class="timeline-icon">
+                    🍽️
+                </div>
+
+                <h3>
+                    Order
+                </h3>
+
+                <p>
+                    Guests order confidently because they know exactly what they'll receive.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMPARISON -->
+    <section class="home-section reveal">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                Why BiteView
+            </p>
+
+            <h2>
+                Traditional Menu vs BiteView
+            </h2>
+
+        </div>
+
+        <div class="comparison-container">
+
+            <div class="comp-box comp-box--before">
+
+                <div class="comp-header">
+                    <h3>Traditional Menu</h3>
+                </div>
+
+                <ul class="comp-list">
+
+                    <li>
+                        <span class="comp-icon-cross">✕</span>
+                        Only text and images
+                    </li>
+
+                    <li>
+                        <span class="comp-icon-cross">✕</span>
+                        Hard to imagine food
+                    </li>
+
+                    <li>
+                        <span class="comp-icon-cross">✕</span>
+                        Slower decisions
+                    </li>
+
+                    <li>
+                        <span class="comp-icon-cross">✕</span>
+                        No interactive experience
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="comp-box comp-box--after">
+
+                <div class="comp-header">
+                    <h3>BiteView</h3>
+                </div>
+
+                <ul class="comp-list">
+
+                    <li>
+                        <span class="comp-icon-check">✔</span>
+                        Interactive 3D dishes
+                    </li>
+
+                    <li>
+                        <span class="comp-icon-check">✔</span>
+                        Better customer confidence
+                    </li>
+
+                    <li>
+                        <span class="comp-icon-check">✔</span>
+                        Faster ordering
+                    </li>
+
+                    <li>
+                        <span class="comp-icon-check">✔</span>
+                        Premium dining experience
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
