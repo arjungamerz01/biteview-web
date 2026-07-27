@@ -1,31 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="theme-color" content="#08090c">
-    <meta name="description"
-        content="BiteView transforms restaurant menus into interactive 3D digital experiences. See before you order.">
+    <meta name="description" content="BiteView brings restaurant menus to life with interactive 3D and AR food experiences.">
 
     <title>BiteView | See Before You Order</title>
 
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/sections.css">
 
-    <!-- Three.js -->
     <script type="importmap">
     {
       "imports": {
@@ -34,7 +27,6 @@
       }
     }
     </script>
-
 </head>
 
 <body>
@@ -43,15 +35,17 @@
 
     <nav class="navbar" aria-label="Primary Navigation">
 
-        <a href="index.html" class="logo" aria-label="BiteView Home">
+        <a href="index.html" class="logo">
+
             <img src="assets/logo/biteview-logo.png" alt="BiteView Logo">
+
             <span>BiteView</span>
+
         </a>
 
         <button
             class="menu-btn"
-            type="button"
-            aria-label="Open Navigation"
+            aria-label="Open Menu"
             aria-expanded="false"
             aria-controls="mobile-menu">
 
@@ -71,7 +65,9 @@
             <a href="#footer">Contact</a>
 
             <a href="pricing.html" class="primary-btn nav-cta-btn">
+
                 Get Started
+
             </a>
 
         </div>
@@ -82,312 +78,591 @@
 
 <main>
 
-    <!-- ================= HERO ================= -->
+<section class="hero" aria-labelledby="hero-title">
 
-    <section class="hero" aria-labelledby="hero-title">
+<div class="hero-copy">
 
-        <div class="hero-copy">
+<p class="badge">
 
-            <p class="badge">
-                <span class="badge-dot"></span>
-                Interactive 3D Restaurant Menus
-            </p>
+<span class="badge-dot"></span>
 
-            <h1 id="hero-title">
+Interactive 3D &amp; AR Menu Platform
 
-                See Before<br>
-                <span>You Order.</span>
+</p>
 
-            </h1>
+<h1 id="hero-title">
 
-            <p class="subtitle">
+Experience Food
 
-                Transform your restaurant menu into an immersive
-                3D digital experience that helps customers choose
-                with confidence and increases sales.
+<br>
 
-            </p>
+<span>Before You Order.</span>
 
-            <div class="hero-buttons">
+</h1>
 
-                <a href="#dishes" class="primary-btn">
+<p class="subtitle">
 
-                    Explore Demo
+Bring restaurant menus to life with immersive 3D models and Augmented Reality.
 
-                    <span aria-hidden="true">↗</span>
+</p>
 
-                </a>
+<div class="hero-buttons">
 
-                <a href="pricing.html" class="secondary-btn">
+<a href="#dishes" class="primary-btn">
 
-                    View Pricing
+Try Live Demo
 
-                </a>
+<span aria-hidden="true">↗</span>
 
+</a>
+
+<a href="#restaurants" class="secondary-btn">
+
+For Restaurants
+
+</a>
+
+</div>
+
+</div>
+
+<div class="model-stage">
+
+<div class="model-card">
+
+<div class="model-card__shine"></div>
+
+<div class="model-status">
+
+<span></span>
+
+Live 3D Preview
+
+</div>
+
+<canvas
+id="model-viewer"
+aria-label="Interactive 3D Food Viewer">
+</canvas>
+
+<div class="model-hint">
+
+<span class="drag-icon">↔</span>
+
+Drag to Explore
+
+</div>
+
+<div class="model-orbit model-orbit--one"></div>
+
+<div class="model-orbit model-orbit--two"></div>
+
+</div>
+
+</div>
+
+<a href="#dishes" class="scroll">
+
+<span>
+
+Scroll to Discover
+
+</span>
+
+<b>
+
+↓
+
+</b>
+
+</a>
+
+</section>
+
+<!-- =========================
+FEATURED DISHES
+========================= -->
+
+<section id="dishes" class="content-section featured-dishes" aria-labelledby="dishes-title">
+
+    <div class="section-heading reveal">
+        <p class="eyebrow">Curated for today</p>
+
+        <h2 id="dishes-title">
+            Featured dishes worth a closer look.
+        </h2>
+
+        <p>
+            Explore every dish in beautiful interactive 3D before placing your order.
+        </p>
+    </div>
+
+    <div class="dish-grid">
+
+        <article class="dish-card reveal">
+
+            <div class="dish-visual dish-visual--pasta">
+                <span>🍝</span>
+                <i></i>
             </div>
 
-        </div>
+            <div class="dish-card__content">
 
-        <div class="model-stage">
-
-            <div class="model-card">
-
-                <div class="model-card__shine"></div>
-
-                <div class="model-status">
-
-                    <span></span>
-
-                    Interactive 3D Preview
-
+                <div class="card-meta">
+                    <span>Chef Special</span>
+                    <span class="rating">★ 4.9</span>
                 </div>
 
-                <canvas id="model-viewer"></canvas>
+                <h3>Truffle Pasta</h3>
 
-                <div class="model-hint">
+                <p>
+                    Handmade tagliatelle with creamy parmesan sauce,
+                    mushrooms and black truffle.
+                </p>
 
-                    <span class="drag-icon">↔</span>
+                <div class="card-footer">
+                    <strong>₹680</strong>
 
-                    Drag to Rotate
-
+                    <button class="card-button">
+                        View in 3D →
+                    </button>
                 </div>
 
-                <div class="model-orbit model-orbit--one"></div>
+            </div>
 
-                <div class="model-orbit model-orbit--two"></div>
+        </article>
+
+
+        <article class="dish-card reveal">
+
+            <div class="dish-visual dish-visual--sushi">
+                <span>🍣</span>
+                <i></i>
+            </div>
+
+            <div class="dish-card__content">
+
+                <div class="card-meta">
+                    <span>Popular</span>
+                    <span class="rating">★ 4.8</span>
+                </div>
+
+                <h3>Premium Sushi</h3>
+
+                <p>
+                    Fresh salmon, avocado and Japanese rice served
+                    with soy and wasabi.
+                </p>
+
+                <div class="card-footer">
+                    <strong>₹720</strong>
+
+                    <button class="card-button">
+                        View in 3D →
+                    </button>
+                </div>
 
             </div>
 
-        </div>
+        </article>
 
-    </section>
 
-        <!-- TRUST SECTION -->
-    <section class="home-trust-section reveal">
-        <div class="home-glow-orb glow-top-right"></div>
+        <article class="dish-card reveal">
 
-        <div class="trust-badge-label">
-            <span class="star">★</span>
-            Trusted by Modern Restaurants
-        </div>
-
-        <div class="home-trust-grid">
-
-            <div class="trust-glass-card">
-                <span class="icon">⚡</span>
-                <strong>24 Hour Setup</strong>
-                <span>Fast onboarding</span>
+            <div class="dish-visual dish-visual--dessert">
+                <span>🍰</span>
+                <i></i>
             </div>
 
-            <div class="trust-glass-card">
-                <span class="icon">📱</span>
-                <strong>Works Everywhere</strong>
-                <span>Android • iPhone</span>
+            <div class="dish-card__content">
+
+                <div class="card-meta">
+                    <span>New</span>
+                    <span class="rating">★ 4.9</span>
+                </div>
+
+                <h3>Chocolate Lava Cake</h3>
+
+                <p>
+                    Rich Belgian chocolate cake with molten centre
+                    served warm with vanilla ice cream.
+                </p>
+
+                <div class="card-footer">
+                    <strong>₹390</strong>
+
+                    <button class="card-button">
+                        View in 3D →
+                    </button>
+                </div>
+
             </div>
 
-            <div class="trust-glass-card">
-                <span class="icon">🛡️</span>
-                <strong>Secure</strong>
-                <span>SSL Protected</span>
-            </div>
+        </article>
 
-            <div class="trust-glass-card">
-                <span class="icon">☁️</span>
-                <strong>Cloud Hosted</strong>
-                <span>Always Available</span>
-            </div>
+    </div>
 
-        </div>
-    </section>
+</section>
 
 
-    <!-- HOW IT WORKS -->
-    <section id="how-it-works" class="home-section reveal">
+<!-- =========================
+HOW IT WORKS
+========================= -->
 
-        <div class="section-heading">
+<section id="how-it-works" class="content-section how-it-works">
 
-            <p class="eyebrow">
-                How It Works
-            </p>
+    <div class="section-heading reveal">
 
-            <h2>
-                From Scan To Order
-            </h2>
+        <p class="eyebrow">
+            Simple by design
+        </p>
+
+        <h2>
+            A better way to choose your next dish.
+        </h2>
+
+    </div>
+
+    <ol class="steps-list">
+
+        <li class="step-card reveal">
+
+            <span class="step-number">
+                01
+            </span>
+
+            <span class="step-icon">
+                📷
+            </span>
+
+            <h3>
+                Scan QR
+            </h3>
 
             <p>
-                Your customers experience every dish before placing an order.
+                Scan the QR code placed on your restaurant table.
+            </p>
+
+        </li>
+
+        <li class="step-card reveal">
+
+            <span class="step-number">
+                02
+            </span>
+
+            <span class="step-icon">
+                🍽️
+            </span>
+
+            <h3>
+                Explore in 3D
+            </h3>
+
+            <p>
+                Rotate every dish and inspect it from every angle.
+            </p>
+
+        </li>
+
+        <li class="step-card reveal">
+
+            <span class="step-number">
+                03
+            </span>
+
+            <span class="step-icon">
+                ✅
+            </span>
+
+            <h3>
+                Order with confidence
+            </h3>
+
+            <p>
+                Know exactly what you're getting before placing your order.
+            </p>
+
+        </li>
+
+    </ol>
+
+</section>
+
+<!-- =========================
+RESTAURANTS
+========================= -->
+
+<section id="restaurants" class="content-section restaurant-showcase" aria-labelledby="restaurants-title">
+
+    <div class="section-heading reveal">
+
+        <p class="eyebrow">
+            Restaurant Partners
+        </p>
+
+        <h2 id="restaurants-title">
+            Loved by modern restaurants.
+        </h2>
+
+        <p>
+            Beautiful digital menus that impress guests and increase confidence before ordering.
+        </p>
+
+    </div>
+
+    <div class="restaurant-grid">
+
+        <article class="restaurant-card reveal">
+
+            <div class="restaurant-visual restaurant-visual--ember">
+                <span>
+                    Ember
+                    <br>
+                    & Grain
+                </span>
+            </div>
+
+            <div class="restaurant-card__content">
+
+                <span>Modern European</span>
+
+                <h3>Ember & Grain</h3>
+
+                <div>
+
+                    <span class="rating">
+                        ★ 4.9
+                    </span>
+
+                    <a href="#dishes">
+                        View Demo →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="restaurant-card reveal">
+
+            <div class="restaurant-visual restaurant-visual--nori">
+                <span>
+                    NORI
+                    <br>
+                    HOUSE
+                </span>
+            </div>
+
+            <div class="restaurant-card__content">
+
+                <span>Japanese Cuisine</span>
+
+                <h3>Nori House</h3>
+
+                <div>
+
+                    <span class="rating">
+                        ★ 4.8
+                    </span>
+
+                    <a href="#dishes">
+                        View Demo →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="restaurant-card reveal">
+
+            <div class="restaurant-visual restaurant-visual--luma">
+                <span>
+                    LUMA
+                    <br>
+                    CAFÉ
+                </span>
+            </div>
+
+            <div class="restaurant-card__content">
+
+                <span>Premium Café</span>
+
+                <h3>Luma Café</h3>
+
+                <div>
+
+                    <span class="rating">
+                        ★ 4.9
+                    </span>
+
+                    <a href="#dishes">
+                        View Demo →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+BENEFITS
+========================= -->
+
+<section id="benefits" class="content-section benefits">
+
+    <div class="section-heading reveal">
+
+        <p class="eyebrow">
+            Why BiteView
+        </p>
+
+        <h2>
+            Designed for unforgettable dining experiences.
+        </h2>
+
+    </div>
+
+    <div class="benefit-grid">
+
+        <article class="benefit-card reveal">
+
+            <span>⚡</span>
+
+            <h3>Fast</h3>
+
+            <p>
+                Instant menu loading with zero app installation.
+            </p>
+
+        </article>
+
+        <article class="benefit-card reveal">
+
+            <span>◈</span>
+
+            <h3>Interactive</h3>
+
+            <p>
+                Rotate and inspect every dish in beautiful 3D.
+            </p>
+
+        </article>
+
+        <article class="benefit-card reveal">
+
+            <span>⬡</span>
+
+            <h3>Immersive</h3>
+
+            <p>
+                Give customers confidence before ordering.
+            </p>
+
+        </article>
+
+        <article class="benefit-card reveal">
+
+            <span>📱</span>
+
+            <h3>Mobile Ready</h3>
+
+            <p>
+                Works perfectly on every smartphone browser.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer id="footer" class="site-footer">
+
+    <div class="footer-main">
+
+        <div class="footer-brand">
+
+            <a class="logo" href="index.html">
+
+                <img src="assets/logo/biteview-logo.png" alt="BiteView">
+
+                <span>BiteView</span>
+
+            </a>
+
+            <p>
+                Making restaurant menus impossible to forget.
             </p>
 
         </div>
 
-        <div class="how-it-works-grid">
 
-            <div class="timeline-card">
+        <div class="footer-nav">
 
-                <span class="timeline-step-num">
-                    01
-                </span>
+            <p>Explore</p>
 
-                <div class="timeline-icon">
-                    📷
-                </div>
+            <a href="#dishes">Featured Dishes</a>
 
-                <h3>
-                    Scan QR
-                </h3>
+            <a href="#how-it-works">How It Works</a>
 
-                <p>
-                    Customers simply scan your QR code with their phone.
-                </p>
+            <a href="#restaurants">Restaurants</a>
 
-            </div>
+        </div>
 
-            <div class="timeline-card">
 
-                <span class="timeline-step-num">
-                    02
-                </span>
+        <div class="footer-contact">
 
-                <div class="timeline-icon">
-                    📖
-                </div>
+            <p>Contact</p>
 
-                <h3>
-                    Open Menu
-                </h3>
+            <a href="mailto:hello@biteview.co">
+                hello@biteview.co
+            </a>
 
-                <p>
-                    The digital menu opens instantly in the browser.
-                </p>
+            <div class="social-links">
 
-            </div>
+                <a href="#" aria-label="Instagram">IG</a>
 
-            <div class="timeline-card">
+                <a href="#" aria-label="LinkedIn">IN</a>
 
-                <span class="timeline-step-num">
-                    03
-                </span>
-
-                <div class="timeline-icon">
-                    🧊
-                </div>
-
-                <h3>
-                    Explore 3D
-                </h3>
-
-                <p>
-                    Rotate and inspect every food item in interactive 3D.
-                </p>
-
-            </div>
-
-            <div class="timeline-card">
-
-                <span class="timeline-step-num">
-                    04
-                </span>
-
-                <div class="timeline-icon">
-                    🍽️
-                </div>
-
-                <h3>
-                    Order
-                </h3>
-
-                <p>
-                    Guests order confidently because they know exactly what they'll receive.
-                </p>
+                <a href="#" aria-label="Twitter">𝕏</a>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
 
+    <div class="footer-bottom">
 
-    <!-- COMPARISON -->
-    <section class="home-section reveal">
+        <span>
+            © 2026 BiteView. All rights reserved.
+        </span>
 
-        <div class="section-heading">
+        <span>
+            See Before You Order.
+        </span>
 
-            <p class="eyebrow">
-                Why BiteView
-            </p>
+    </div>
 
-            <h2>
-                Traditional Menu vs BiteView
-            </h2>
+</footer>
 
-        </div>
+<script src="js/app.js" defer></script>
+<script type="module" src="js/viewer.js"></script>
 
-        <div class="comparison-container">
-
-            <div class="comp-box comp-box--before">
-
-                <div class="comp-header">
-                    <h3>Traditional Menu</h3>
-                </div>
-
-                <ul class="comp-list">
-
-                    <li>
-                        <span class="comp-icon-cross">✕</span>
-                        Only text and images
-                    </li>
-
-                    <li>
-                        <span class="comp-icon-cross">✕</span>
-                        Hard to imagine food
-                    </li>
-
-                    <li>
-                        <span class="comp-icon-cross">✕</span>
-                        Slower decisions
-                    </li>
-
-                    <li>
-                        <span class="comp-icon-cross">✕</span>
-                        No interactive experience
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="comp-box comp-box--after">
-
-                <div class="comp-header">
-                    <h3>BiteView</h3>
-                </div>
-
-                <ul class="comp-list">
-
-                    <li>
-                        <span class="comp-icon-check">✔</span>
-                        Interactive 3D dishes
-                    </li>
-
-                    <li>
-                        <span class="comp-icon-check">✔</span>
-                        Better customer confidence
-                    </li>
-
-                    <li>
-                        <span class="comp-icon-check">✔</span>
-                        Faster ordering
-                    </li>
-
-                    <li>
-                        <span class="comp-icon-check">✔</span>
-                        Premium dining experience
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    </section>
+</body>
+</html>
