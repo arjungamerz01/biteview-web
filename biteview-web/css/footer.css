@@ -1,0 +1,11 @@
+/* ==========================================================
+   BiteView Footer Enhancements
+========================================================== */
+
+.site-footer .logo{
+  margin-bottom:16px;
+}
+
+.site-footer .logo span{
+  font-size:1.16rem;
+}

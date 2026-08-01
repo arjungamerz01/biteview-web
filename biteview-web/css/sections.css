@@ -1,0 +1,1117 @@
+/* ==========================================================
+   BiteView Section Styles
+========================================================== */
+
+.featured-section,
+.how-section,
+.restaurant-section,
+.benefits-section,
+.cta-section{
+  padding:120px 0 0;
+}
+
+.section-header{
+  max-width:760px;
+  margin:0 auto 60px;
+  text-align:center;
+}
+
+.section-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 16px;
+  border-radius:999px;
+  color:var(--primary);
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  background:rgba(255,255,255,.55);
+  border:1px solid rgba(255,255,255,.5);
+}
+
+.section-header h2,
+.cta-card h2{
+  margin:18px 0 12px;
+}
+
+.section-header p,
+.cta-card p{
+  font-size:1rem;
+  max-width:620px;
+  margin:0 auto;
+}
+
+.dish-grid,
+.restaurant-grid,
+.benefits-grid{
+  display:grid;
+  gap:24px;
+}
+
+.dish-grid{grid-template-columns:repeat(3, minmax(0, 1fr));}
+.restaurant-grid{grid-template-columns:repeat(3, minmax(0, 1fr));}
+.benefits-grid{grid-template-columns:repeat(4, minmax(0, 1fr));}
+
+.dish-card,
+.step-card,
+.restaurant-card,
+.benefit-card{
+  position:relative;
+  overflow:hidden;
+  padding:24px;
+  border-radius:28px;
+  background:rgba(255,255,255,.48);
+  border:1px solid rgba(255,255,255,.6);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  box-shadow:0 30px 70px rgba(100,70,30,.10);
+  transition:transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.dish-card:hover,
+.step-card:hover,
+.restaurant-card:hover,
+.benefit-card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 36px 70px rgba(120,80,40,.16);
+}
+
+.dish-card::before,
+.step-card::before,
+.restaurant-card::before,
+.benefit-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,.28), transparent);
+  transform:translateX(-140%);
+  transition:transform .9s ease;
+  pointer-events:none;
+}
+
+.dish-card:hover::before,
+.step-card:hover::before,
+.restaurant-card:hover::before,
+.benefit-card:hover::before{transform:translateX(140%);}
+
+.dish-image{
+  height:272px;
+  border-radius:24px;
+  margin-bottom:24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg, rgba(255,255,255,.72), rgba(255,255,255,.26));
+  border:1px solid rgba(255,255,255,.45);
+  overflow:hidden;
+}
+
+.dish-image img{
+  width:220px;
+  object-fit:contain;
+  filter:drop-shadow(0 24px 38px rgba(120,80,40,.16));
+  transition:transform var(--transition);
+}
+
+.dish-card:hover .dish-image img{transform:scale(1.05) rotate(-4deg);}
+
+.dish-top,
+.dish-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.dish-category,
+.dish-rating{font-size:.8rem;font-weight:700;color:var(--primary);}
+.dish-rating{color:var(--secondary);}
+
+.dish-content h3{margin:12px 0 10px;font-size:1.22rem;}
+.dish-content p{margin-bottom:18px;font-size:.95rem;line-height:1.8;}
+
+.dish-footer h4{font-size:1.12rem;color:var(--text);}
+.dish-footer button{padding:10px 16px;font-size:.9rem;}
+
+.steps-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:24px;
+}
+
+.step-number{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  margin-bottom:18px;
+  background:linear-gradient(135deg, var(--primary), var(--secondary));
+  color:var(--white);
+  font-weight:800;
+  box-shadow:0 12px 24px rgba(249,115,22,.2);
+}
+
+.step-card h3,
+.restaurant-card h3,
+.benefit-card h3{margin-bottom:10px;}
+
+.benefit-icon{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border-radius:16px;
+  margin-bottom:16px;
+  background:rgba(255,255,255,.58);
+  border:1px solid rgba(255,255,255,.46);
+  font-size:1.18rem;
+}
+
+.cta-card{
+  padding:72px 44px;
+  text-align:center;
+  background:linear-gradient(135deg, rgba(255,255,255,.64), rgba(255,255,255,.36));
+  border:1px solid rgba(255,255,255,.5);
+  box-shadow:0 30px 80px rgba(120,80,40,.12);
+  overflow:hidden;
+  position:relative;
+}
+
+.cta-card::before,
+.cta-card::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.cta-card::before{width:260px;height:260px;left:-80px;top:-80px;background:radial-gradient(circle, rgba(249,115,22,.16), transparent 66%);} 
+.cta-card::after{width:220px;height:220px;right:-70px;bottom:-70px;background:radial-gradient(circle, rgba(217,119,6,.14), transparent 66%);} 
+
+.cta-buttons{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:32px;}
+
+.site-footer{padding:100px 0 24px;margin-top:90px;border-top:1px solid rgba(180,140,90,.16);}
+.footer-container{display:grid;grid-template-columns:1.4fr .8fr .8fr .8fr;gap:24px;}
+.footer-brand p{max-width:340px;}
+.footer-links h4{margin-bottom:16px;font-size:1rem;color:var(--text);}
+.footer-links a{display:block;margin-bottom:10px;color:var(--muted);transition:color var(--transition);} 
+.footer-links a:hover{color:var(--primary);} 
+.footer-bottom{margin-top:34px;padding-top:20px;border-top:1px solid rgba(180,140,90,.16);display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.9rem;}
+
+    margin-bottom:14px;
+
+}
+
+.dish-content p{
+
+    font-size:.95rem;
+
+    line-height:1.8;
+
+}
+
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.card-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:30px;
+
+}
+
+.card-price{
+
+    font-size:1.35rem;
+
+    font-weight:800;
+
+    color:#fff;
+
+}
+
+.view-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:12px 22px;
+
+    border-radius:999px;
+
+    background:
+
+    rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:var(--primary);
+
+    font-size:.84rem;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+}
+
+.view-btn:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+/* ==========================================================
+   BiteView Sections
+   PART 2
+   Features + How It Works
+==========================================================*/
+
+
+/* ==========================================================
+   FEATURES
+==========================================================*/
+
+.features{
+
+    padding:120px 0;
+
+    position:relative;
+
+}
+
+.features-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:28px;
+
+    margin-top:70px;
+
+}
+
+
+.feature-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:34px 28px;
+
+    border-radius:28px;
+
+    background:
+
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,.06),
+        rgba(255,255,255,.03)
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(24px);
+
+    transition:var(--transition);
+
+    box-shadow:
+
+    0 18px 45px rgba(0,0,0,.25);
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(255,255,255,.13);
+
+}
+
+
+.feature-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        130deg,
+
+        transparent,
+
+        rgba(255,255,255,.08),
+
+        transparent
+
+    );
+
+    transform:translateX(-120%);
+
+    transition:1s;
+
+}
+
+.feature-card:hover::before{
+
+    transform:translateX(120%);
+
+}
+
+
+.feature-icon{
+
+    width:72px;
+
+    height:72px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:28px;
+
+    border-radius:22px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        rgba(255,107,24,.18),
+        rgba(255,255,255,.05)
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    font-size:2rem;
+
+    color:var(--orange-light);
+
+}
+
+
+.feature-card h3{
+
+    margin-bottom:16px;
+
+    font-size:1.25rem;
+
+}
+
+.feature-card p{
+
+    font-size:.95rem;
+
+    line-height:1.8;
+
+}
+
+
+/* ==========================================================
+   HOW IT WORKS
+==========================================================*/
+
+.how-it-works{
+
+    padding:130px 0;
+
+    position:relative;
+
+}
+
+
+/* center line */
+
+.steps{
+
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:40px;
+
+    margin-top:80px;
+
+}
+
+
+.steps::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    top:54px;
+
+    height:2px;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,107,24,.4),
+
+        transparent
+
+    );
+
+}
+
+
+/* card */
+
+.step{
+
+    position:relative;
+
+    text-align:center;
+
+}
+
+
+.step-card{
+
+    padding:38px 28px;
+
+    border-radius:30px;
+
+    background:
+
+    linear-gradient(
+
+        180deg,
+
+        rgba(255,255,255,.06),
+
+        rgba(255,255,255,.03)
+
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(24px);
+
+    transition:var(--transition);
+
+}
+
+
+.step-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+/* number */
+
+.step-number{
+
+    width:82px;
+
+    height:82px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:0 auto 28px;
+
+    border-radius:50%;
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        var(--primary),
+
+        var(--secondary)
+
+    );
+
+    color:#fff;
+
+    font-size:1.4rem;
+
+    font-weight:800;
+
+    box-shadow:
+
+    0 18px 40px rgba(249,115,22,.22);
+
+}
+
+
+.step-card h3{
+
+    margin-bottom:18px;
+
+}
+
+
+.step-card p{
+
+    max-width:260px;
+
+    margin:auto;
+
+    font-size:.94rem;
+
+    line-height:1.8;
+
+}
+
+
+/* floating connection */
+
+.step:not(:last-child)::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-24px;
+
+    top:42px;
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        rgba(255,107,24,.18),
+
+        transparent
+
+    );
+
+    filter:blur(12px);
+
+}
+
+
+/* hover glow */
+
+.step-card:hover{
+
+    box-shadow:
+
+    0 25px 60px rgba(255,107,24,.12),
+
+    0 0 40px rgba(255,107,24,.08);
+
+}
+
+/* ==========================================================
+   BiteView Sections
+   PART 3
+   Restaurants • CTA • Footer • Responsive
+==========================================================*/
+
+
+/* ==========================================================
+   RESTAURANTS SHOWCASE
+==========================================================*/
+
+.restaurants{
+
+    padding:120px 0;
+
+}
+
+.restaurant-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin-top:70px;
+
+}
+
+
+.restaurant-card{
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    background:
+
+    linear-gradient(
+
+        180deg,
+
+        rgba(255,255,255,.06),
+
+        rgba(255,255,255,.03)
+
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(24px);
+
+    transition:var(--transition);
+
+}
+
+.restaurant-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+.restaurant-image{
+
+    height:260px;
+
+    background:linear-gradient(
+
+        135deg,
+
+        rgba(255,107,24,.25),
+
+        rgba(255,255,255,.03)
+
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:3rem;
+
+    color:rgba(255,255,255,.25);
+
+}
+
+
+.restaurant-content{
+
+    padding:30px;
+
+}
+
+.restaurant-location{
+
+    color:var(--orange-light);
+
+    font-size:.85rem;
+
+    margin-bottom:8px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+}
+
+.restaurant-content h3{
+
+    margin-bottom:16px;
+
+}
+
+.restaurant-content p{
+
+    margin-bottom:26px;
+
+}
+
+.restaurant-link{
+
+    color:var(--orange);
+
+    font-weight:700;
+
+    text-decoration:none;
+
+}
+
+.restaurant-link:hover{
+
+    color:#fff;
+
+}
+
+
+/* ==========================================================
+   CTA
+==========================================================*/
+
+.cta{
+
+    padding:130px 0;
+
+}
+
+.cta-card{
+
+    text-align:center;
+
+    padding:90px 70px;
+
+    border-radius:40px;
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        rgba(255,107,24,.15),
+
+        rgba(255,255,255,.04)
+
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(30px);
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+
+.cta-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(
+
+        circle at center,
+
+        rgba(255,255,255,.08),
+
+        transparent 65%
+
+    );
+
+    pointer-events:none;
+
+}
+
+
+.cta h2{
+
+    font-size:clamp(2.4rem,5vw,4rem);
+
+    margin-bottom:22px;
+
+}
+
+.cta p{
+
+    max-width:700px;
+
+    margin:auto auto 40px;
+
+    font-size:1.05rem;
+
+}
+
+
+/* ==========================================================
+   FOOTER
+==========================================================*/
+
+.footer{
+
+    padding:80px 0 30px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr;
+
+    gap:60px;
+
+}
+
+
+.footer-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:24px;
+
+}
+
+.footer-logo img{
+
+    width:54px;
+
+}
+
+.footer-logo h3{
+
+    margin:0;
+
+}
+
+
+.footer p{
+
+    max-width:420px;
+
+}
+
+
+.footer-column h4{
+
+    margin-bottom:20px;
+
+    color:#fff;
+
+}
+
+
+.footer-column a{
+
+    display:block;
+
+    margin-bottom:14px;
+
+    color:var(--muted);
+
+    text-decoration:none;
+
+    transition:var(--transition);
+
+}
+
+.footer-column a:hover{
+
+    color:var(--primary);
+
+}
+
+
+.footer-social{
+
+    display:flex;
+
+    gap:16px;
+
+    margin-top:20px;
+
+}
+
+.footer-social a{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+
+    rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    font-size:1.2rem;
+
+}
+
+
+.footer-bottom{
+
+    margin-top:70px;
+
+    padding-top:30px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:var(--text-light);
+
+    font-size:.92rem;
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+==========================================================*/
+
+@media(max-width:1100px){
+
+.hero-grid,
+
+.features-grid,
+
+.restaurant-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.footer-grid{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+}
+
+
+@media(max-width:768px){
+
+.features-grid,
+
+.restaurant-grid,
+
+.steps{
+
+grid-template-columns:1fr;
+
+}
+
+.steps::before{
+
+display:none;
+
+}
+
+.step::after{
+
+display:none;
+
+}
+
+.footer-grid{
+
+grid-template-columns:1fr;
+
+gap:40px;
+
+}
+
+.footer-bottom{
+
+flex-direction:column;
+
+gap:12px;
+
+text-align:center;
+
+}
+
+.cta-card{
+
+padding:60px 30px;
+
+}
+
+}
+
+
+@media(max-width:600px){
+
+.section-title{
+
+font-size:2.2rem;
+
+}
+
+.restaurant-image{
+
+height:220px;
+
+}
+
+.feature-card,
+
+.restaurant-card,
+
+.step-card{
+
+padding:26px;
+
+}
+
+}

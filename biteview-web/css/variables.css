@@ -1,0 +1,33 @@
+/* ===========================================================
+   BiteView Premium Luxury Tokens
+   =========================================================== */
+
+:root{
+  --background:#F8F1E7;
+  --background-secondary:#FFF9F3;
+  --background-dark:#2A211A;
+  --surface:rgba(255,255,255,.45);
+  --surface-strong:rgba(255,255,255,.72);
+  --surface-soft:#FFFDF9;
+  --primary:#F97316;
+  --secondary:#D97706;
+  --text:#2A211A;
+  --muted:#6E5C4F;
+  --border:rgba(180,140,90,.18);
+  --border-strong:rgba(255,255,255,.45);
+  --white:#FFFDF8;
+  --shadow:0 30px 70px rgba(120,80,40,.12);
+  --shadow-strong:0 36px 90px rgba(90,55,20,.16);
+  --radius-xl:30px;
+  --radius-lg:24px;
+  --radius-md:20px;
+  --radius-sm:16px;
+  --radius-pill:999px;
+  --transition:280ms cubic-bezier(.22,.61,.36,1);
+  --font-heading:'Playfair Display', serif;
+  --font-body:'Plus Jakarta Sans', sans-serif;
+  --font-ui:'Inter', sans-serif;
+  --max-width:1200px;
+  --section-padding:120px;
+}
+
